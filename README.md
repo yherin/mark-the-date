@@ -42,4 +42,4 @@ Player
 - Data has been parsed from wikipedia.
 
 ## Class diagram.
-![Class diagram](/documentation/mark-the-date-class-diagram.png)
+![Class diagram](https://github.com/yherin/mark-the-date/blob/master/documentation/mark-the-date-clas-diagram.png)
