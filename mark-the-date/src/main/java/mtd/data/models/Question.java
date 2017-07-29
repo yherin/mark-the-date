@@ -28,15 +28,15 @@ public class Question {
         this.randomAnswers = randomAnswers;
     }
 
-    public Event getEvent() {
+    public final Event getEvent() {
         return event;
     }
 
-    public CorrectAnswer getCorrectAnswer() {
+    public final CorrectAnswer getCorrectAnswer() {
         return correctAnswer;
     }
 
-    public List<RandomAnswer> getRandomAnswers() {
+    public final List<RandomAnswer> getRandomAnswers() {
         return randomAnswers;
     }
 

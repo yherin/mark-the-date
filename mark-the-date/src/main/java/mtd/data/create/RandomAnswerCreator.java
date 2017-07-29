@@ -9,7 +9,6 @@ import mtd.data.models.answer.CorrectAnswer;
 import mtd.data.models.answer.RandomAnswer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  *
@@ -17,15 +16,20 @@ import java.util.Objects;
  */
 public class RandomAnswerCreator {
 
-    public RandomAnswerCreator() {
+    /**
+     * The number of random answers that should be created.
+     */
+    final int NORA = 3; //number of random answers
 
+    public RandomAnswerCreator() {
     }
 
-    public List<RandomAnswer> generateRandomAnswers(CorrectAnswer realAnswer) {
+    public final List<RandomAnswer> generateRandomAnswers(CorrectAnswer correct) {
         List<RandomAnswer> generatedAnswers = new ArrayList<>();
-        while (generatedAnswers.size() < 3) {
-            RandomAnswer possibleAnswer = new RandomAnswer(realAnswer.getValue());
-            boolean possibleAnswerIsValid = answersAreUnique(generatedAnswers, realAnswer, possibleAnswer);
+        while (generatedAnswers.size() < NORA) {
+            RandomAnswer possibleAnswer = new RandomAnswer();
+            boolean possibleAnswerIsValid = answersAreUnique(
+                    generatedAnswers, correct, possibleAnswer);
             if (possibleAnswerIsValid) {
                 generatedAnswers.add(possibleAnswer);
             }
@@ -33,9 +37,23 @@ public class RandomAnswerCreator {
         return generatedAnswers;
     }
 
-    private boolean answersAreUnique(List<RandomAnswer> randoms, CorrectAnswer real, RandomAnswer possibleAnswer) {
-        //return true if and only if possibleAnswer is not in the list and is not equal to real answer
-        return (!randoms.contains(possibleAnswer) && !Objects.equals(possibleAnswer.getValue(), real.getValue()));
+    /**
+     *
+     * @param randoms the current list of chosen random answers
+     * @param real the correct answer
+     * @param possibleAnswer the answer which is checked against real and the
+     * list of random answers.
+     * @return True if possibleAnswer is not present in the list of currently
+     * chosen random answers, and is not equal to the real answer. Else false.
+     */
+    private boolean answersAreUnique(final List<RandomAnswer> randoms,
+            final CorrectAnswer real, final RandomAnswer possibleAnswer) {
+        if (possibleAnswer != null) {
+            return (!randoms.contains(possibleAnswer)
+                    && (possibleAnswer.getValue() != real.getValue()));
+        } else {
+            return false;
+        }
     }
 
 }
