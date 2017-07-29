@@ -22,13 +22,21 @@ import mtd.data.models.Question;
  */
 public class Main {
 
+    /*
+    Current state of the main method:
+    -Load questions from JSON.
+    -Randomly generate answers from them.
+    -Print those answers.
+     */
     public static void main(String[] args) throws FileNotFoundException, IOException {
+
+        int numberOfEvents = 10;
         SwingUtilities.invokeLater(new MyFrame());
-        EventCreator ec = new EventCreator(10);
+        EventCreator ec = new EventCreator(numberOfEvents);
         List<Event> list = ec.createEvents();
 
         QuestionCreator qc = new QuestionCreator(list, new RandomAnswerCreator());
-        List<Question> q = qc.getListOfQuestions(10);
+        List<Question> q = qc.getListOfQuestions(numberOfEvents);
 
         for (Question x : q) {
             System.out.println(x);

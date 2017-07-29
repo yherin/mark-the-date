@@ -40,3 +40,6 @@ Player
 
 - Events are held in JSON within the .jar
 - Data has been parsed from wikipedia.
+
+## Class diagram.
+![Class diagram](/documentation/mark-the-date-class-diagram.png)
