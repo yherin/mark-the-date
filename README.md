@@ -19,7 +19,7 @@ Player
 ## Core functionality:
 
 - Introduction during loading screen.
-- "One click start" that begins a new game. No setup required from the player.
+- "One click start" that begins a new game. Little to no setup required from the player.
 - Countdown timer until the game ends.
 - A quicker guess awards more points.
 - User presented with 4 possible answers.
