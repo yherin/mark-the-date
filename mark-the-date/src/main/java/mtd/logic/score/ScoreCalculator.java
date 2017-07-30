@@ -1,5 +1,6 @@
 package mtd.logic.score;
 
+import java.util.List;
 import mtd.data.models.Question;
 import mtd.data.models.answer.CorrectAnswer;
 import mtd.data.models.answer.RandomAnswer;
@@ -10,13 +11,10 @@ import mtd.data.models.answer.RandomAnswer;
  */
 public class ScoreCalculator {
 
+    public ScoreCalculator() {}
 
-    public ScoreCalculator() {
-       
-    }
-
-    public boolean assignScoreValuesToEachAnswer(Question q) {
-
+    public final void assignScoreValuesToEachAnswer(Question q) {
+        calculateAndAssignScores(q);
     }
 
     /**
@@ -28,11 +26,19 @@ public class ScoreCalculator {
      */
     private int calculateScoreForRandomAnswer(final CorrectAnswer correct,
             final RandomAnswer ran) {
-        return Math.abs(MAXPOINTS - correct.getValue() - ran.getValue());
+        return Math.abs(correct.getMaxScore() - correct.getYear() - ran.getYear());
     }
-    
-    private boolean assignScoreForRandomAnswer(final int score,
-            final RandomAnswer ran){
-        ran.
+
+    private void assignScoreForRandomAnswer(final int score,
+            final RandomAnswer ran) {
+        ran.setScore(score);
+    }
+
+    private void calculateAndAssignScores(Question q) {
+        List<RandomAnswer> randomList = q.getRandomAnswers();
+        for (RandomAnswer randomAnswer : randomList) {
+            int score = calculateScoreForRandomAnswer(q.getCorrectAnswer(), randomAnswer);
+            assignScoreForRandomAnswer(score, randomAnswer);
+        }
     }
 }

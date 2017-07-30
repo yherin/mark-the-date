@@ -27,12 +27,20 @@ public class RandomAnswer extends Answer {
      */
     public RandomAnswer() {
         RNG = new Random();
-        this.value = generateRandomAnswer();
+        this.year = generateRandomAnswer();
 
     }
 
     private int generateRandomAnswer() {
         return RNG.nextInt(1000);
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return this.score;
     }
 
 }

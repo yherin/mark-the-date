@@ -46,13 +46,13 @@ public class Question {
         sb.append(this.event.getDescription());
         List<Answer> answers = createShuffledAnswers();
         sb.append("\n");
-        sb.append(answers.get(0).getValue());
+        sb.append(answers.get(0).getYear());
         sb.append("\t");
-        sb.append(answers.get(1).getValue());
+        sb.append(answers.get(1).getYear());
         sb.append("\t");
-        sb.append(answers.get(2).getValue());
+        sb.append(answers.get(2).getYear());
         sb.append("\t");
-        sb.append(answers.get(3).getValue());
+        sb.append(answers.get(3).getYear());
         return sb.toString();
     }
 

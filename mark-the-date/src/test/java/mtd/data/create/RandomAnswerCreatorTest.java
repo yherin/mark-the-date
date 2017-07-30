@@ -48,10 +48,10 @@ public class RandomAnswerCreatorTest {
         assertFalse(answers.isEmpty());
         for (int i = 0; i < answers.size(); i++) {
             RandomAnswer ra = answers.get(i);
-            assertNotNull(ra.getValue());
-            assertNotNull(correct1.getValue());
-            assertFalse("two answers were equal:\n" + correct1.getValue() + " == " + ra.getValue(),
-                    correct1.getValue() == ra.getValue());
+            assertNotNull(ra.getYear());
+            assertNotNull(correct1.getYear());
+            assertFalse("two answers were equal:\n" + correct1.getYear() + " == " + ra.getYear(),
+                    correct1.getYear() == ra.getYear());
             answers.remove(i);
             assertFalse("answer was removed but still contained in the list", answers.contains(ra));
         }

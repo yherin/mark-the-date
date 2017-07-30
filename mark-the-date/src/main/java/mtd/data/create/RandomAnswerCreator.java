@@ -50,7 +50,7 @@ public class RandomAnswerCreator {
             final CorrectAnswer real, final RandomAnswer possibleAnswer) {
         if (possibleAnswer != null) {
             return (!randoms.contains(possibleAnswer)
-                    && (possibleAnswer.getValue() != real.getValue()));
+                    && (possibleAnswer.getYear() != real.getYear()));
         } else {
             return false;
         }

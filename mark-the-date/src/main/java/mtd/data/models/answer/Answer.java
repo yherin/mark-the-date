@@ -11,23 +11,25 @@ package mtd.data.models.answer;
  */
 public abstract class Answer implements Comparable<Answer> {
 
-    protected Integer value;
+    protected Integer year;
+    protected Integer score;
 
     public Answer() {
+
     }
 
-    public Integer getValue() {
-        return value;
+    public Integer getYear() {
+        return year;
     }
 
     @Override
     public String toString() {
-        return this.value.toString();
+        return this.year.toString();
     }
 
     @Override
     public int compareTo(Answer other) {
-        return other.getValue() - this.value;
+        return other.getYear() - this.year;
     }
 
 }
