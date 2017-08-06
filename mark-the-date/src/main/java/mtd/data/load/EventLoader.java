@@ -29,7 +29,7 @@ public class EventLoader {
      * Returns the root JSONObject from the events.json file. Access the key
      * pair values by calling .getJSONObject("events").
      *
-     * @return the root JSONObject 
+     * @return the root JSONObject
      * @see JSONObject
      */
     public JSONObject getJSONRoot() {
@@ -81,8 +81,8 @@ public class EventLoader {
             try {
                 br.close();
             } catch (IOException e) {
-            };
-        };
+            }
+        }
         return sb.toString();
     }
 
