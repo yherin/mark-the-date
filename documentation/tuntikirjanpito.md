@@ -9,4 +9,6 @@ Päivä | Tunnit | Kuvaus
 26.07.2017 | 3h | Write some unit tests for Loaders and Creators.
 27.07.2017 | 1h | Expand UML diagram and plan further project structure. Improve the README.
 27.07.2017 | 1h | Convert Answer to abstract, extend to CorrectAnswer and RandomAnswer. Write RandomAnswerCreator.
-27.07.2017 | 2h | Test structure refactoring. Improve class diagram. 
+27.07.2017 | 2h | Test structure refactoring. Improve class diagram.
+28.07.2017 - 05.08.2017 | -- | On holiday.
+06.08.2017 | 5h | Implement ScoreCalculator and add unit tests for that. Improve documentation according to feedback. Fixed Checkstyle errors.
