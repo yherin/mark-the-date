@@ -37,14 +37,19 @@
 </file>
 <file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/data/command/QuizMaster.java">
 </file>
-<file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/data/command/AnswerEvaluator.java">
-</file>
 <file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/gui/MyFrame.java">
 </file>
 <file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/gui/MyPanel.java">
 </file>
+<file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/logic/main/GamePlayer.java">
+<error line="27" column="23" severity="error" message="Name &apos;GAME_LENGTH&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+</file>
 <file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/logic/main/Main.java">
 </file>
+<file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/logic/score/UserChoiceHandler.java">
+</file>
 <file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/logic/score/ScoreCalculator.java">
+</file>
+<file name="/home/sjack/code/mark-the-date/mark-the-date/src/main/java/mtd/logic/score/ScoreAssigner.java">
 </file>
 </checkstyle>
