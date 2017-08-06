@@ -6,4 +6,4 @@ Logic and processing in Java, question data stored in JSON parsed from wikipedia
 
 
 ## Documentation
-- [Read the documentation here.](https://github.com/yherin/mark-the-date/blob/master/documentation/project-description-structure.md)
+- [Read the project description here.](https://github.com/yherin/mark-the-date/blob/master/documentation/project-description-structure.md)
