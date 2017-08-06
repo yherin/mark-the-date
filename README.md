@@ -7,3 +7,5 @@ Logic and processing in Java, question data stored in JSON parsed from wikipedia
 
 ## Documentation
 - [Read the project description here.](https://github.com/yherin/mark-the-date/blob/master/documentation/project-description-structure.md)
+- [Tuntikirjanpito / work hours](https://github.com/yherin/mark-the-date/blob/master/documentation/tuntikirjanpito.md)
+- 
