@@ -11,7 +11,8 @@ import mtd.data.models.answer.RandomAnswer;
  */
 public class ScoreCalculator {
 
-    public ScoreCalculator() {}
+    public ScoreCalculator() {
+    }
 
     public final void assignScoreValuesToEachAnswer(Question q) {
         calculateAndAssignScores(q);
@@ -21,12 +22,17 @@ public class ScoreCalculator {
      * Returns the score given for a random answer.
      *
      * @param correct the correct answer
-     * @param ran the randomly generated answer
+     * @param rand the randomly generated answer
      * @return the calculated score
      */
     private int calculateScoreForRandomAnswer(final CorrectAnswer correct,
-            final RandomAnswer ran) {
-        return Math.abs(correct.getMaxScore() - correct.getYear() - ran.getYear());
+            final RandomAnswer rand) {
+        int score = correct.getMaxScore() - Math.abs(correct.getYear() - rand.getYear());
+        if (score > 0) {
+            return score;
+        } else {
+            return 0;
+        }
     }
 
     private void assignScoreForRandomAnswer(final int score,

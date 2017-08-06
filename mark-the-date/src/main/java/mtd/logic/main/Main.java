@@ -30,17 +30,11 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        int numberOfEvents = 10;
+        int numberOfEvents = 50;
         SwingUtilities.invokeLater(new MyFrame());
-        EventCreator ec = new EventCreator(numberOfEvents);
-        List<Event> list = ec.createEvents();
-
-        QuestionCreator qc = new QuestionCreator(list, new RandomAnswerCreator());
-        List<Question> q = qc.getListOfQuestions(numberOfEvents);
-
-        for (Question x : q) {
-            System.out.println(x);
-        }
+        GamePlayer gp = new GamePlayer(numberOfEvents);
+        int score = gp.play();
+        System.out.println("score: " + score);
     }
 
 }

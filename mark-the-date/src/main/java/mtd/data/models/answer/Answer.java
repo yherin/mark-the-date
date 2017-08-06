@@ -32,4 +32,8 @@ public abstract class Answer implements Comparable<Answer> {
         return other.getYear() - this.year;
     }
 
+    public Integer getScore() {
+        return this.score;
+    }
+
 }

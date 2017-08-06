@@ -21,11 +21,14 @@ public class Question {
     private final Event event;
     private final CorrectAnswer correctAnswer;
     private final List<RandomAnswer> randomAnswers;
+    private List<Answer> shuffled;
 
     public Question(Event event, CorrectAnswer correctAnswer, List<RandomAnswer> randomAnswers) {
         this.event = event;
         this.correctAnswer = correctAnswer;
         this.randomAnswers = randomAnswers;
+        shuffled = createShuffledAnswers();
+
     }
 
     public final Event getEvent() {
@@ -44,15 +47,14 @@ public class Question {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.event.getDescription());
-        List<Answer> answers = createShuffledAnswers();
         sb.append("\n");
-        sb.append(answers.get(0).getYear());
+        sb.append(shuffled.get(0).getYear());
         sb.append("\t");
-        sb.append(answers.get(1).getYear());
+        sb.append(shuffled.get(1).getYear());
         sb.append("\t");
-        sb.append(answers.get(2).getYear());
+        sb.append(shuffled.get(2).getYear());
         sb.append("\t");
-        sb.append(answers.get(3).getYear());
+        sb.append(shuffled.get(3).getYear());
         return sb.toString();
     }
 
@@ -62,6 +64,10 @@ public class Question {
         answers.add(correctAnswer);
         Collections.shuffle(answers);
         return answers;
+    }
+
+    public List<Answer> getShuffled() {
+        return shuffled;
     }
 
 }

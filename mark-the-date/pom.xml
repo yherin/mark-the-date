@@ -53,6 +53,7 @@
                 <configuration>
                     <targetClasses>
                         <param>mtd.data.*</param>
+                        <param>mtd.logic.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>mtd.*</param>

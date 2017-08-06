@@ -23,7 +23,7 @@ public class RandomAnswer extends Answer {
 
     /**
      * Constructor generates a random number between 1 and 1000 and assigns it
-     * to 'value'.
+     * to 'value' (inherited from super).
      */
     public RandomAnswer() {
         RNG = new Random();
@@ -39,7 +39,8 @@ public class RandomAnswer extends Answer {
         this.score = score;
     }
 
-    public int getScore() {
+    @Override
+    public Integer getScore() {
         return this.score;
     }
 

@@ -40,9 +40,14 @@ public class EventTest {
 
     @Test
     public void sameDateDifferentDescription() {
-        assertTrue("Events with different desc produced same hash:\n"+e3.toString()+": "+e3.hashCode()
-                +"\n"+e4.toString()+": "+e4.hashCode(), e3.hashCode() != e4.hashCode());
+        assertTrue("Events with different desc produced same hash:\n" + e3.toString() + ": " + e3.hashCode()
+                + "\n" + e4.toString() + ": " + e4.hashCode(), e3.hashCode() != e4.hashCode());
     }
-    
-    
+
+    @Test
+    public void equalsMethodWorks() {
+        assertTrue(e1.equals(e5));
+        assertFalse(e1.equals(e2));
+    }
+
 }

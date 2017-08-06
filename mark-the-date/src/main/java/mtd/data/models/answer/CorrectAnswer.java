@@ -25,4 +25,9 @@ public class CorrectAnswer extends Answer {
     public final int getMaxScore() {
         return this.MAX_SCORE;
     }
+
+    @Override
+    public final Integer getScore() {
+        return getMaxScore();
+    }
 }
