@@ -38,8 +38,8 @@ public class EventPickerTest {
     private final int quantity;
      */
     public EventPickerTest() {
-        el = new EventLoader();
-        jso = el.getJSONRoot();
+
+        jso = EventLoader.getJSONRoot().getJSONObject("events");
         ep1 = new EventPicker(jso);
         ep2 = new EventPicker(jso);
         ep3 = new EventPicker(jso);
@@ -48,16 +48,14 @@ public class EventPickerTest {
 
     @Before
     public void setupEventPicker1() {
-        el.getJSONRoot().getJSONObject("events");
         shouldFailAfterThisManyEvents = jso.length() + 1;
         ep1.selectEventNotYetSelected();
     }
 
     @Before
     public void setupEventPicker2() {
-        el.getJSONRoot().getJSONObject("events");
         shouldFailAfterThisManyEvents = jso.length() + 1;
-        for (int i = 0; i < shouldFailAfterThisManyEvents-2; i++) {
+        for (int i = 0; i < shouldFailAfterThisManyEvents - 2; i++) {
             ep2.selectEventNotYetSelected();
         }
 
@@ -71,10 +69,10 @@ public class EventPickerTest {
     @Test
     public void eventPickerReturnsBlankStringWhenNoUnpickedEvents() {
         assertNotEquals("eventPicker returned \"\" after first call", ep2.selectEventNotYetSelected(), "");
-        for (int i = 0; i < shouldFailAfterThisManyEvents+1; i++) {
+        for (int i = 0; i < shouldFailAfterThisManyEvents + 1; i++) {
             ep2.selectEventNotYetSelected();
         }
-        assertEquals("eventPicker did not return \"\" when calling more than number of events", 
+        assertEquals("eventPicker did not return \"\" when calling more than number of events",
                 ep2.selectEventNotYetSelected(), "");
     }
 

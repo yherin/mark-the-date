@@ -24,8 +24,6 @@ public class BuildJSON {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        final EventLoader ql = new EventLoader(); //not a test
-
         BufferedReader br = new BufferedReader(new FileReader("/home/sjack/response-ad3.html"));
         String line = br.readLine();
         List<String> lines = new ArrayList<String>();
@@ -36,7 +34,7 @@ public class BuildJSON {
         }
         System.out.println(lines.toString());
 
-        final JSONObject currentFile = ql.getJSONRoot();
+        final JSONObject currentFile = EventLoader.getJSONRoot();
         JSONObject eventsObject = currentFile.getJSONObject("events");
         final int BEGIN_FROM_ID = currentFile.getJSONObject("events").length() + 1;
         System.out.println(BEGIN_FROM_ID);

@@ -1,4 +1,3 @@
-
 package mtd.data.create;
 
 import mtd.data.models.Event;
@@ -17,17 +16,15 @@ import org.json.JSONObject;
  */
 public class EventCreator {
 
-    private final EventLoader eventLoader;
     private final int quantity;
     private final JSONObject eventsJSON;
     private final EventPicker eventPicker;
     private final List<Event> processedEvents;
 
     public EventCreator(int quantity) {
-        eventLoader = new EventLoader(); //not a test
         this.quantity = quantity;
 
-        eventsJSON = eventLoader.getJSONRoot().getJSONObject("events");
+        eventsJSON = EventLoader.getJSONRoot().getJSONObject("events");
         processedEvents = new ArrayList<>();
         eventPicker = new EventPicker(eventsJSON);
     }
@@ -40,7 +37,7 @@ public class EventCreator {
         ArrayList<Event> listOfEvents = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
             String key = eventPicker.selectEventNotYetSelected();
-            
+
             Event event = createIndividualEventObject(key);
             listOfEvents.add(event);
         }
