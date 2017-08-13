@@ -20,8 +20,7 @@ import mtd.data.load.EventLoader;
  *
  * @author sjack
  */
-public class BuildJSON {
-
+public class BuildJSON { 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         BufferedReader br = new BufferedReader(new FileReader("/home/sjack/response-ad3.html"));
