@@ -7,7 +7,7 @@ A historical quiz where the player guesses the time period of specific events fr
 ## On pressing 'Run Project':
 - Questions are chosen randomly and shown in a basic UI, with answer buttons.
 - The buttons record the answer and load the next question.
-- Score is locked to `System.out`.
+- Score is logged to `System.out`.
 - After 15 questions, program exits with code 0.
 
 ## Code quality
