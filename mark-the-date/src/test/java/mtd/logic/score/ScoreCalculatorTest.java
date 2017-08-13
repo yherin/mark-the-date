@@ -5,6 +5,12 @@
  */
 package mtd.logic.score;
 
+import java.util.List;
+import mtd.data.create.RandomAnswerCreator;
+import mtd.data.models.Event;
+import mtd.data.models.Question;
+import mtd.data.models.answer.Answer;
+import mtd.data.models.answer.CorrectAnswer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,28 +24,41 @@ import static org.junit.Assert.*;
  */
 public class ScoreCalculatorTest {
 
+    private ScoreCalculator sc1;
+    private Question q;
+    private List<Answer> ans;
+
     public ScoreCalculatorTest() {
-    }
+        sc1 = new ScoreCalculator();
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
     }
 
     @Before
-    public void setUp() {
+    public void setup() {
+        RandomAnswerCreator rac = new RandomAnswerCreator();
+        Event e = new Event(100, "desc");
+        CorrectAnswer ca = new CorrectAnswer(100);
+        q = new Question(e, ca, rac.generateRandomAnswers(ca));
+        sc1.assignScoreValuesToEachAnswer(q);
+        ans = q.getShuffled();
     }
 
-    @After
-    public void tearDown() {
+    @Test
+    public void everyAnswerHasScore() {
+        for (Answer an : ans) {
+            assertNotNull(an.getScore());
+        }
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void everyScoreBetween0And500() {
+        for (Answer an : ans) {
+            assertTrue(0 + "-" + an.getScore() + "-" + 500, an.getScore() >= 0 && an.getScore() <= 500);
+        }
+    }
+
+    @Test
+    public void correctAnswerHasScoreOf500() {
+        assertTrue(q.getCorrectAnswer().getScore() == 500);
+    }
 }
