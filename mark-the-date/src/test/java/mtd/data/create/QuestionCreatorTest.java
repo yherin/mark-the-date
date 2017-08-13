@@ -7,8 +7,10 @@ package mtd.data.create;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import mtd.data.create.QuestionCreator;
 import mtd.data.create.RandomAnswerCreator;
+import mtd.data.load.SettingsLoader;
 import mtd.data.models.Event;
 import mtd.data.models.Question;
 import mtd.data.models.answer.CorrectAnswer;
@@ -28,15 +30,17 @@ public class QuestionCreatorTest {
 
     private final List<Event> events;
     private final RandomAnswerCreator rac;
-    private final CorrectAnswer ca;
-    private List<RandomAnswer> ra;
     private List<Question> ql;
-
+    private final int test_length = SettingsLoader.getSetting("number_of_events");
+    
     public QuestionCreatorTest() {
         this.rac = new RandomAnswerCreator();
         this.events = new ArrayList<>();
-        this.events.add(new Event(120, "event"));
-        this.ca = new CorrectAnswer(120);
+        Random random = new Random();
+        for (int i = 0; i < test_length; i++) {
+            events.add(new Event(random.nextInt(999) + 1, "desc"));
+        }
+
     }
 
     @BeforeClass
@@ -49,8 +53,7 @@ public class QuestionCreatorTest {
 
     @Before
     public void setUp() {
-        ra = rac.generateRandomAnswers(this.ca);
-        ql = new QuestionCreator(this.events, this.rac).getListOfQuestions(1);
+        ql = new QuestionCreator(this.events, this.rac).getListOfQuestions();
     }
 
     @After
@@ -60,7 +63,7 @@ public class QuestionCreatorTest {
     @Test
     public void questionCreatorListNotEmptyNorNull() {
         assertNotNull("list of questions was null", ql);
-        assertTrue("list of questions was incorrect length", ql.size() == 1);
+        assertTrue("list of questions was incorrect length", ql.size() >= 1);
     }
 
     @Test

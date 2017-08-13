@@ -5,16 +5,10 @@
  */
 package mtd.logic.main;
 
-import mtd.data.models.Event;
-import mtd.gui.MyFrame;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
+import java.sql.Timestamp;
 import javax.swing.SwingUtilities;
-import mtd.data.create.EventCreator;
-import mtd.data.create.QuestionCreator;
-import mtd.data.create.RandomAnswerCreator;
-import mtd.data.models.Question;
 
 /**
  *
@@ -31,10 +25,13 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         int numberOfEvents = 50;
-        SwingUtilities.invokeLater(new MyFrame());
-        GamePlayer gp = new GamePlayer(numberOfEvents);
-        int score = gp.play();
-        System.out.println("score: " + score);
+        GamePlayer gp = new GamePlayer();
+        int threads = gp.play();
+        if (threads != 2) {
+            System.exit(-1);
+        } else {
+            System.out.println("Mark the date GUI loaded successfully.");
+        }
     }
 
 }

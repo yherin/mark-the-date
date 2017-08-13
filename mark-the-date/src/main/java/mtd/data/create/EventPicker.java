@@ -33,8 +33,14 @@ public class EventPicker {
         putUIDsIntoIntegerArray();
         usedUIDs = new TreeSet<>();
     }
-    
 
+
+    /**
+     * Selects an event which has not yet been selected.
+     * @return The key corresponding to an Event object which has not yet
+     * been returned by this EventPicker.
+     * @return A blank String, when no unchosen key exists.
+     */
     public String selectEventNotYetSelected() {
         boolean foundSuitableUID = false;
         if (this.usedUIDs.size() == this.UIDs.length) {
@@ -57,7 +63,7 @@ public class EventPicker {
     private void putUIDsIntoIntegerArray() {
         int count = 0;
         Set<String> keySet = this.EVENTS.keySet();
-        
+
         for (String key : keySet) {
 
             this.UIDs[count] = key;
@@ -98,7 +104,7 @@ public class EventPicker {
     public int getQuantity() {
         return quantity;
     }
-    
-    
+
+
 
 }

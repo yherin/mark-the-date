@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import mtd.data.load.EventLoader;
+import mtd.data.load.SettingsLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,14 +22,18 @@ public class EventCreator {
     private final EventPicker eventPicker;
     private final List<Event> processedEvents;
 
-    public EventCreator(int quantity) {
-        this.quantity = quantity;
+    public EventCreator() {
+        this.quantity = SettingsLoader.getSetting("number_of_events");
 
         eventsJSON = EventLoader.getJSONRoot().getJSONObject("events");
         processedEvents = new ArrayList<>();
         eventPicker = new EventPicker(eventsJSON);
     }
 
+    /**
+     * Creates a list of events.
+     * @return List of Event objects.
+     */
     public List<Event> createEvents() {
         return handleEventCreationLoop();
     }

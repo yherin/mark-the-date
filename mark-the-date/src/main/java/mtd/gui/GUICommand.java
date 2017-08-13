@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.logic.score;
+package mtd.gui;
 
 /**
  *
  * @author sjack
  */
-public class UserChoiceHandler {
-
-    public UserChoiceHandler() {
-
-    }
-    
-    
-
+public enum GUICommand {
+    NEXT_QUESTION, PREVIOUS_QUESTION, CURRENT_QUESTION
 }

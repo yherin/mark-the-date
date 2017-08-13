@@ -9,52 +9,41 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import org.json.JSONObject;
 
 /**
  *
  * @author sjack
  */
-public final class EventLoader {
-
-    /**
-     * Not in use.
-     */
-    private EventLoader() {
-        //not called.
-    }
+public final class SettingsLoader {
 
     /**
      * The JSON file where event data is stored.
      */
-    private static final String EVENTS_FILE_NAME = "events.json";
+    private static final String SETTINGS_FILE_NAME = "settings.json";
     /**
      * Path (location WITHIN /src/main/resources) to above file.
      */
-    private static final String EVENTS_FILE_PATH = "mtd/json/";
+    private static final String SETTINGS_FILE_PATH = "mtd/json/";
+    private static final HashMap<String, Integer> SETTINGS = new HashMap<>();
 
-    /**
-     * Returns the root JSONObject from the events.json file. Access the key
-     * pair values by calling .getJSONObject("events").
-     * Structure: root { events { DATA }}
-     *
-     * @return the root JSONObject
-     * @see JSONObject
-     */
-    public static JSONObject getJSONRoot() {
-
-        return readEventJSONObject();
+    private SettingsLoader() {
+        //not called
     }
 
-    private static InputStream getEventInputStream() {
-        InputStream is = EventLoader.class.getClassLoader().getResourceAsStream(
-                EVENTS_FILE_PATH + EVENTS_FILE_NAME);
-        return is;
+    public static int getSetting(String key) {
+        if (!SETTINGS.containsKey(key)) {
+            JSONObject settingsFile = readSettingsJSONObject();
+            SETTINGS.put(key, settingsFile.getInt(key));
+
+        }
+        return SETTINGS.get(key);
     }
 
-    private static BufferedReader getEventBufferedReader() {
+    private static BufferedReader getSettingsBufferedReader() {
         BufferedReader bf;
-        InputStream is = getEventInputStream();
+        InputStream is = getSettingsInputStream();
         assert (is != null);
         InputStreamReader inputReader = new InputStreamReader(is);
 
@@ -62,14 +51,20 @@ public final class EventLoader {
         return bf;
     }
 
-    private static JSONObject readEventJSONObject() {
+    private static InputStream getSettingsInputStream() {
+        InputStream is = SettingsLoader.class.getClassLoader().getResourceAsStream(
+                SETTINGS_FILE_PATH + SETTINGS_FILE_NAME);
+        return is;
+    }
 
-        try (BufferedReader br = getEventBufferedReader()) {
+    private static JSONObject readSettingsJSONObject() {
+
+        try (BufferedReader br = getSettingsBufferedReader()) {
             String jsonAsString = read(br);
             JSONObject jso = new JSONObject(jsonAsString);
             return jso;
         } catch (IOException e) {
-            System.out.println("Fatal error when parsing events JSON. "
+            System.out.println("Fatal error when parsing settings JSON. Stack: "
                     + e.getLocalizedMessage());
             System.exit(-1);
         }
@@ -86,7 +81,7 @@ public final class EventLoader {
                 line = br.readLine();
             }
         } catch (IOException e) {
-            System.out.println("Fatal error when parsing events JSON.  "
+            System.out.println("Fatal error when parsing settings JSON. Stack: "
                     + e.getLocalizedMessage());
             System.exit(-1);
         } finally {
@@ -97,5 +92,4 @@ public final class EventLoader {
         }
         return sb.toString();
     }
-
 }

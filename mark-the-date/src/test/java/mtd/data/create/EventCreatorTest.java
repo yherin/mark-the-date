@@ -6,6 +6,7 @@
 package mtd.data.create;
 
 import mtd.data.create.EventCreator;
+import mtd.data.load.SettingsLoader;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,7 +24,7 @@ public class EventCreatorTest {
     private int desired = 3;
 
     public EventCreatorTest() {
-        ec = new EventCreator(desired);
+        ec = new EventCreator();
     }
 
     // TODO add test methods here.
@@ -32,7 +33,7 @@ public class EventCreatorTest {
     @Test
     public void eventCreatorProducesCorrectNumberOfEvents() {
         int created = ec.createEvents().size();
-        this.desired = 3;
+        this.desired = SettingsLoader.getSetting("number_of_events");
         assertTrue("eventCreator produced " + created + " but should have only produced " + this.desired + ".",
                 created == this.desired);
     }

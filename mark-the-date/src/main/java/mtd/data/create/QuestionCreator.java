@@ -10,6 +10,7 @@ import mtd.data.models.Question;
 import java.util.ArrayList;
 import java.util.List;
 import mtd.data.load.EventLoader;
+import mtd.data.load.SettingsLoader;
 import mtd.data.models.answer.CorrectAnswer;
 import mtd.data.models.answer.RandomAnswer;
 import org.json.JSONArray;
@@ -29,9 +30,9 @@ public class QuestionCreator {
         this.rac = rac;
     }
 
-    public ArrayList<Question> getListOfQuestions(Integer quantity) {
+    public ArrayList<Question> getListOfQuestions() {
         ArrayList<Question> questionList = new ArrayList<>();
-
+        int quantity = SettingsLoader.getSetting("number_of_events");
         for (int i = 0; i < quantity; i++) {
             Question q = createQuestionFromEventAndAnswers(this.events.get(i));
             questionList.add(q);
