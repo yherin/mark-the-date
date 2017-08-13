@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 20,
-             Errors: 12,
+      <title>File: 23,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -60,6 +60,34 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#mtd.data.load.SettingsLoader.java">mtd/data/load/SettingsLoader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.gui.AnswerButton.java">mtd/gui/AnswerButton.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#mtd.data.models.answer.RandomAnswer.java">mtd/data/models/answer/RandomAnswer.java</a>
                 </td>
                 <td>
@@ -69,7 +97,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -97,7 +125,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  3
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.data.create.QuizCreator.java">mtd/data/create/QuizCreator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -139,7 +181,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -181,7 +223,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -195,7 +237,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.gui.UserInputController.java">mtd/gui/UserInputController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -214,34 +270,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.MyPanel.java">mtd/gui/MyPanel.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.construct.BuildJSON.java">mtd/data/construct/BuildJSON.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#mtd.logic.score.ScoreAssigner.java">mtd/logic/score/ScoreAssigner.java</a>
                 </td>
                 <td>
@@ -256,7 +284,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.logic.score.UserChoiceHandler.java">mtd/logic/score/UserChoiceHandler.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.gui.GUICommand.java">mtd/gui/GUICommand.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.gui.GameWindow.java">mtd/gui/GameWindow.java</a>
                 </td>
                 <td>
                   0
@@ -284,7 +326,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.MyFrame.java">mtd/gui/MyFrame.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.data.models.Quiz.java">mtd/data/models/Quiz.java</a>
                 </td>
                 <td>
                   0
@@ -307,7 +349,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  0
                 </td>
               </tr>
                           <tr>
