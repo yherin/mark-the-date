@@ -53,6 +53,7 @@ Player
 
 
 ## Class diagrams.
-
-![Data model diagram](https://github.com/yherin/mark-the-date/blob/master/documentation/mark-the-date-clas-diagram.png)
+### Sadly not yet complete class diagram.
+![Data model diagram ()](https://github.com/yherin/mark-the-date/blob/master/documentation/mark-the-date-data.png)
+### MVC implemenation diagram with relevant methods.
 ![MVC diagram](https://github.com/yherin/mark-the-date/blob/master/documentation/mvc.png)
