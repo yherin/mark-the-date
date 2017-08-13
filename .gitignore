@@ -22,3 +22,6 @@
 hs_err_pid*
 /mark-the-date/target/
 /mark-the-date/nbproject/
+
+#utility class should not be run/packaged
+/mark-the-date/src/main/java/mtd/data/construct/BuildJSON.java
