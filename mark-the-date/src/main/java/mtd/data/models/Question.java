@@ -27,7 +27,6 @@ public class Question {
     private final CorrectAnswer correctAnswer;
     private final List<RandomAnswer> randomAnswers;
     private List<Answer> shuffled;
-    private Answer chosenAnswer;
 
     public Question(Event event, CorrectAnswer correctAnswer, List<RandomAnswer> randomAnswers) {
         this.event = event;
@@ -35,14 +34,6 @@ public class Question {
         this.randomAnswers = randomAnswers;
         shuffled = createShuffledAnswers();
 
-    }
-
-    public final void setChosenAnswer(Answer chosen) {
-        this.chosenAnswer = chosen;
-    }
-
-    public final Answer getChosenAnswer() {
-        return this.chosenAnswer;
     }
 
     public final Event getEvent() {
