@@ -14,7 +14,7 @@ A historical quiz where the player guesses the time period of specific events fr
 - The code documentation (Javadoc) is not as good as I would like.
 - Single-Responsibility-Principle is followed fairly well. Most classes have only 1 public method (excl. some getters), so they have only 1 responsibility.
 
-#Specification
+# Specification
 
 ## Users:
 
