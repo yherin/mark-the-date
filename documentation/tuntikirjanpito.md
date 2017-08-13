@@ -12,3 +12,5 @@ Päivä | Tunnit | Kuvaus
 27.07.2017 | 2h | Test structure refactoring. Improve class diagram.
 28.07.2017 - 05.08.2017 | -- | On holiday.
 06.08.2017 | 5h | Implement ScoreCalculator and add unit tests for that. Improve documentation according to feedback. Fixed Checkstyle errors.
+08.08.2017 | 2h | Refactoring.
+13.08.2017 | 7h | Basic GUI with button listeners. Many unit tests. Improved architecture. Improved UML diagram.
