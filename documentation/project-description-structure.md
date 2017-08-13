@@ -2,6 +2,18 @@
 
 A historical quiz where the player guesses the time period of specific events from their description. A more accurate, faster guess awards more points.
 
+# Code status
+
+## On pressing 'Run Project':
+- Questions are chosen randomly and shown in a basic UI, with answer buttons.
+- The buttons record the answer and load the next question.
+- Score is locked to `System.out`.
+- After 15 questions, program exits with code 0.
+
+## Code quality
+- The code documentation (Javadoc) is not as good as I would like.
+- Single-Responsibility-Principle is followed fairly well. Most classes have only 1 public method (excl. some getters), so they have only 1 responsibility.
+
 #Specification
 
 ## Users:
@@ -21,14 +33,14 @@ Player
 ## Core functionality:
 
 - Introduction during loading screen.
-- "One click start" that begins a new game. Little to no setup required from the player.
+- "One click start" that begins a new game. Little to no setup required from the player. __done__
 - Countdown timer until the game ends.
 - A quicker guess awards more points.
-- User presented with 4 possible answers.
-  - One will be correct. Awards 50 points (reduced by time taken).
-  - The remaining answers will be randomly generated (but will be 'sanity checked').
-  - If one of the random answers is close to the correct answer, it will awards points in proportion to distance from the correct answer.
-- When selecting an answer, the next question will automatically show.
+- User presented with 4 possible answers. __done__
+  - One will be correct. Awards 500 points (reduced by time taken).
+  - The remaining answers will be randomly generated (but will be 'sanity checked'). __done__
+  - If one of the random answers is close to the correct answer, it will awards points in proportion to distance from the correct answer. __done__
+- When selecting an answer, the next question will automatically show. __done__
 
 ## 'Nice to have' functionality
 
