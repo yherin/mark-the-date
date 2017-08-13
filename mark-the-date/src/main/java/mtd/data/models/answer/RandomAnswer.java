@@ -19,20 +19,20 @@ public class RandomAnswer extends Answer {
      *
      * @see Random
      */
-    private final Random RNG;
+    private final Random randomNumberGenerator;
 
     /**
      * Constructor generates a random number between 1 and 1000 and assigns it
      * to 'value' (inherited from super).
      */
     public RandomAnswer() {
-        RNG = new Random();
+        randomNumberGenerator = new Random();
         this.year = generateRandomAnswer();
 
     }
 
     private int generateRandomAnswer() {
-        return RNG.nextInt(1000);
+        return randomNumberGenerator.nextInt(1000);
     }
 
     public void setScore(int score) {

@@ -5,9 +5,6 @@
  */
 package mtd.data.create;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,17 +16,17 @@ import org.json.JSONObject;
  */
 public class EventPicker {
 
-    private final JSONObject EVENTS;
-    private final String[] UIDs;
+    private final JSONObject events;
+    private final String[] uniqueIDs;
     private final TreeSet<String> usedUIDs;
-    private final Random RNG;
+    private final Random randomNumberGenerator;
     private final int quantity;
 
     public EventPicker(JSONObject events) {
-        this.EVENTS = events;
+        this.events = events;
         this.quantity = defineNumberOfEventsInJson();
-        this.UIDs = new String[quantity];
-        this.RNG = new Random();
+        this.uniqueIDs = new String[quantity];
+        this.randomNumberGenerator = new Random();
         putUIDsIntoIntegerArray();
         usedUIDs = new TreeSet<>();
     }
@@ -43,15 +40,15 @@ public class EventPicker {
      */
     public String selectEventNotYetSelected() {
         boolean foundSuitableUID = false;
-        if (this.usedUIDs.size() == this.UIDs.length) {
+        if (this.usedUIDs.size() == this.uniqueIDs.length) {
             return "";
         }
         while (!foundSuitableUID) {
             Integer chosenNumber = (createSuitableRandom());
-            if (chosenNumber > UIDs.length || chosenNumber < 0) {
+            if (chosenNumber > uniqueIDs.length || chosenNumber < 0) {
                 return "";
             }
-            String key = UIDs[chosenNumber];
+            String key = uniqueIDs[chosenNumber];
             if (!usedUIDs.contains(key)) {
                 usedUIDs.add(key);
                 return key;
@@ -62,18 +59,18 @@ public class EventPicker {
 
     private void putUIDsIntoIntegerArray() {
         int count = 0;
-        Set<String> keySet = this.EVENTS.keySet();
+        Set<String> keySet = this.events.keySet();
 
         for (String key : keySet) {
 
-            this.UIDs[count] = key;
+            this.uniqueIDs[count] = key;
             count++;
         }
 
     }
 
     private int defineNumberOfEventsInJson() {
-        int quantityOfEvents = this.EVENTS.length();
+        int quantityOfEvents = this.events.length();
         if (quantityOfEvents >= 1) {
             return quantityOfEvents;
         } else {
@@ -82,15 +79,15 @@ public class EventPicker {
     }
 
     private int createSuitableRandom() {
-        return this.RNG.nextInt(this.quantity);
+        return this.randomNumberGenerator.nextInt(this.quantity);
     }
 
     public JSONObject getEVENTS() {
-        return EVENTS;
+        return events;
     }
 
     public String[] getUIDs() {
-        return UIDs;
+        return uniqueIDs;
     }
 
     public TreeSet<String> getUsedUIDs() {
@@ -98,7 +95,7 @@ public class EventPicker {
     }
 
     public Random getRNG() {
-        return RNG;
+        return randomNumberGenerator;
     }
 
     public int getQuantity() {

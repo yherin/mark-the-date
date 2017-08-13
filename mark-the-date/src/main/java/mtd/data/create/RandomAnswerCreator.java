@@ -19,14 +19,14 @@ public class RandomAnswerCreator {
     /**
      * The number of random answers that should be created.
      */
-    final int NORA = 3; //number of random answers
+    final int numberOfRandomAnswers = 3; //number of random answers
 
     public RandomAnswerCreator() {
     }
 
     public final List<RandomAnswer> generateRandomAnswers(CorrectAnswer correct) {
         List<RandomAnswer> generatedAnswers = new ArrayList<>();
-        while (generatedAnswers.size() < NORA) {
+        while (generatedAnswers.size() < numberOfRandomAnswers) {
             RandomAnswer possibleAnswer = new RandomAnswer();
             boolean possibleAnswerIsValid = answersAreUnique(
                     generatedAnswers, correct, possibleAnswer);

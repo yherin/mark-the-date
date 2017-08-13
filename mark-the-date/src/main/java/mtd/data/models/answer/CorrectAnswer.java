@@ -11,7 +11,7 @@ package mtd.data.models.answer;
  */
 public class CorrectAnswer extends Answer {
 
-    private final int MAX_SCORE = 500;
+    private final int maxScore = 500;
 
     public CorrectAnswer(Integer value) {
         this.year = value;
@@ -23,7 +23,7 @@ public class CorrectAnswer extends Answer {
     }
 
     public final int getMaxScore() {
-        return this.MAX_SCORE;
+        return this.maxScore;
     }
 
     @Override
