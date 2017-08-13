@@ -66,25 +66,6 @@ public class QuizMaster {
         throw new IllegalStateException("GUICMD " + guicmd + " could not be understood");
     }
 
-    private final boolean back() {
-
-        if (index >= 1) {
-            index--;
-            try {
-                Question previousQuestion = quiz.getQuestions().get(index);
-                boolean isSuccessful = validateQuestion(currentQuestion, previousQuestion);
-                if (isSuccessful) {
-                    currentQuestion = previousQuestion;
-                }
-                return isSuccessful;
-            } catch (IndexOutOfBoundsException e) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
     private boolean forward() {
         if (index < quiz.getQuestions().size() - 1) {
             index++;

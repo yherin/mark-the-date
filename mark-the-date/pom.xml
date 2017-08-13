@@ -59,7 +59,7 @@
                         <param>mtd.*</param>
                     </targetTests>
                     <excludedClasses>
-                        <excludedClass>mtd.data.constructBuildJSON.java</excludedClass>
+                        <excludedClass>mtd.data.construct.*</excludedClass>
                     </excludedClasses>
                 </configuration>
             </plugin>

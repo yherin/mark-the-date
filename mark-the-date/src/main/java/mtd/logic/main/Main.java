@@ -7,8 +7,6 @@ package mtd.logic.main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Timestamp;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -24,7 +22,6 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        int numberOfEvents = 50;
         GamePlayer gp = new GamePlayer();
         int threads = gp.play();
         if (threads != 2) {
