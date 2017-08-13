@@ -34,11 +34,11 @@ public class EventPicker {
         usedUIDs = new TreeSet<>();
     }
 
-
     /**
      * Selects an event which has not yet been selected.
-     * @return The key corresponding to an Event object which has not yet
-     * been returned by this EventPicker.
+     *
+     * @return The key corresponding to an Event object which has not yet been
+     * returned by this EventPicker.
      * @return A blank String, when no unchosen key exists.
      */
     public String selectEventNotYetSelected() {
@@ -104,7 +104,5 @@ public class EventPicker {
     public int getQuantity() {
         return quantity;
     }
-
-
 
 }

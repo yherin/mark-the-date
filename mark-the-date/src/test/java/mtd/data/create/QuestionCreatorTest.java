@@ -32,7 +32,7 @@ public class QuestionCreatorTest {
     private final RandomAnswerCreator rac;
     private List<Question> ql;
     private final int test_length = SettingsLoader.getSetting("number_of_events");
-    
+
     public QuestionCreatorTest() {
         this.rac = new RandomAnswerCreator();
         this.events = new ArrayList<>();

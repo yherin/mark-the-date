@@ -35,8 +35,8 @@ public final class EventLoader {
 
     /**
      * Returns the root JSONObject from the events.json file. Access the key
-     * pair values by calling .getJSONObject("events").
-     * Structure: root { events { DATA }}
+     * pair values by calling .getJSONObject("events"). Structure: root { events
+     * { DATA }}
      *
      * @return the root JSONObject
      * @see JSONObject

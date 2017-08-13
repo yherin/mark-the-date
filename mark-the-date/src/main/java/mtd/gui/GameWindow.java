@@ -10,20 +10,13 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.text.JTextComponent;
 import mtd.data.command.QuizMaster;
-import mtd.data.models.Event;
 import mtd.data.models.Question;
 import mtd.data.models.answer.Answer;
-import mtd.data.models.answer.CorrectAnswer;
-import mtd.data.models.answer.RandomAnswer;
 
 /**
  *

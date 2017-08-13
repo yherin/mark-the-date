@@ -32,6 +32,7 @@ public class EventCreator {
 
     /**
      * Creates a list of events.
+     *
      * @return List of Event objects.
      */
     public List<Event> createEvents() {
