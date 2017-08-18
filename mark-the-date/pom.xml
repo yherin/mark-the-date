@@ -20,7 +20,6 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
-
         <dependency>
             <!-- jsoup HTML parser library @ https://jsoup.org/ -->
             <groupId>org.jsoup</groupId>

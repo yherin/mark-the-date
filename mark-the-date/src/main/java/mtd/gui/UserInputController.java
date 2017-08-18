@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Timer;
 import mtd.data.command.QuizMaster;
 import mtd.data.models.Question;
 
@@ -32,8 +33,10 @@ public class UserInputController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             AnswerButton clicked = (AnswerButton) ae.getSource();
+            gui.getTimer().stop();
             model.addPointsToScore(clicked.getAnswer().getScore());
             System.out.println(model.getScore());
+            gui.getTimer().reset();
             nextQuestion();
         }
 

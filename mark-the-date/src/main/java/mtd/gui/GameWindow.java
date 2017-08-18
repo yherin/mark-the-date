@@ -9,13 +9,16 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 import mtd.data.command.QuizMaster;
 import mtd.data.models.Question;
+import mtd.data.models.QuestionStopwatch;
 import mtd.data.models.answer.Answer;
 
 /**
@@ -30,12 +33,14 @@ public class GameWindow implements Runnable {
     private JFrame frame;
     private QuizMaster logic;
     private List<AnswerButton> answerButtons;
+    private QuestionStopwatch timer;
 
     public GameWindow(QuizMaster logic) {
         this.logic = logic;
         this.currentQuestion = logic.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
         gbc = new GridBagConstraints();
         frame = new JFrame("Mark the date");
+        frame.setSize(500, 500);
         this.answerButtons = createAnswerButtons();
         frame.setLayout(new GridBagLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,10 +52,19 @@ public class GameWindow implements Runnable {
 
     private void addComponents() {
         gbc.gridheight = 2;
+        addTimerLabel();
+        resetConstraints();
         addQuestionText();
         resetConstraints();
         addAnswerButtons();
         resetConstraints();
+
+    }
+
+    private void addTimerLabel() {
+        gbc.gridx = 3;
+        this.timer = new QuestionStopwatch();
+        container.add(this.timer);
     }
 
     private void addQuestionText() {
@@ -87,8 +101,8 @@ public class GameWindow implements Runnable {
     }
 
     private void showGUI() {
+        this.timer.start();
 
-        frame.pack();
         frame.setVisible(true);
         frame.repaint();
     }
@@ -114,6 +128,10 @@ public class GameWindow implements Runnable {
     @Override
     public void run() {
         this.showGUI();
+    }
+
+    public QuestionStopwatch getTimer() {
+        return timer;
     }
 
 }
