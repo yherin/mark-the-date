@@ -5,8 +5,9 @@
  */
 package mtd.data.command;
 
-import mtd.data.models.Question;
-import mtd.gui.GUICommand;
+import mtd.model.command.QuizMaster;
+import mtd.model.models.Question;
+import mtd.view.GUICommand;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

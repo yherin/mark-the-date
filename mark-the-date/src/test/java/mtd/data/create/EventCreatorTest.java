@@ -5,8 +5,8 @@
  */
 package mtd.data.create;
 
-import mtd.data.create.EventCreator;
-import mtd.data.load.SettingsLoader;
+import mtd.model.create.EventCreator;
+import mtd.model.load.SettingsLoader;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

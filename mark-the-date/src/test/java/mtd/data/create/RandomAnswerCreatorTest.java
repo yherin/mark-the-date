@@ -5,13 +5,13 @@
  */
 package mtd.data.create;
 
-import mtd.data.models.Event;
-import mtd.data.models.answer.CorrectAnswer;
-import mtd.data.models.answer.RandomAnswer;
+import mtd.model.models.Event;
+import mtd.model.models.answer.CorrectAnswer;
+import mtd.model.models.answer.RandomAnswer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import mtd.data.create.RandomAnswerCreator;
+import mtd.model.create.RandomAnswerCreator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

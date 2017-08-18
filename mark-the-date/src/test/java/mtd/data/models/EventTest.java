@@ -5,7 +5,7 @@
  */
 package mtd.data.models;
 
-import mtd.data.models.Event;
+import mtd.model.models.Event;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

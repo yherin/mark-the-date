@@ -5,6 +5,7 @@
  */
 package mtd.logic.main;
 
+import mtd.controller.main.GamePlayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

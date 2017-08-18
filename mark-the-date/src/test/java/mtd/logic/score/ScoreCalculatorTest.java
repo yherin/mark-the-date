@@ -5,12 +5,13 @@
  */
 package mtd.logic.score;
 
+import mtd.controller.score.ScoreCalculator;
 import java.util.List;
-import mtd.data.create.RandomAnswerCreator;
-import mtd.data.models.Event;
-import mtd.data.models.Question;
-import mtd.data.models.answer.Answer;
-import mtd.data.models.answer.CorrectAnswer;
+import mtd.model.create.RandomAnswerCreator;
+import mtd.model.models.Event;
+import mtd.model.models.Question;
+import mtd.model.models.answer.Answer;
+import mtd.model.models.answer.CorrectAnswer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
