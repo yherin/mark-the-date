@@ -39,7 +39,7 @@ public class EventPickerTest {
      */
     public EventPickerTest() {
 
-        jso = EventLoader.getJSONRoot().getJSONObject("events");
+        jso = new EventLoader().getJSONRoot().getJSONObject("events");
         ep1 = new EventPicker(jso);
         ep2 = new EventPicker(jso);
         ep3 = new EventPicker(jso);

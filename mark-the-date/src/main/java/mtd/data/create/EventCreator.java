@@ -23,9 +23,9 @@ public class EventCreator {
     private final List<Event> processedEvents;
 
     public EventCreator() {
-        this.quantity = SettingsLoader.getSetting("number_of_events");
+        this.quantity = new SettingsLoader().getSetting("number_of_events");
 
-        eventsJSON = EventLoader.getJSONRoot().getJSONObject("events");
+        eventsJSON = new EventLoader().getJSONRoot().getJSONObject("events");
         processedEvents = new ArrayList<>();
         eventPicker = new EventPicker(eventsJSON);
     }

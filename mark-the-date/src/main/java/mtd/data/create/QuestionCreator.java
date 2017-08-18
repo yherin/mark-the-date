@@ -32,7 +32,7 @@ public class QuestionCreator {
 
     public ArrayList<Question> getListOfQuestions() {
         ArrayList<Question> questionList = new ArrayList<>();
-        int quantity = SettingsLoader.getSetting("number_of_events");
+        int quantity = new SettingsLoader().getSetting("number_of_events");
         for (int i = 0; i < quantity; i++) {
             Question q = createQuestionFromEventAndAnswers(this.events.get(i));
             questionList.add(q);

@@ -33,7 +33,7 @@ public class EventCreatorTest {
     @Test
     public void eventCreatorProducesCorrectNumberOfEvents() {
         int created = ec.createEvents().size();
-        this.desired = SettingsLoader.getSetting("number_of_events");
+        this.desired = new SettingsLoader().getSetting("number_of_events");
         assertTrue("eventCreator produced " + created + " but should have only produced " + this.desired + ".",
                 created == this.desired);
     }

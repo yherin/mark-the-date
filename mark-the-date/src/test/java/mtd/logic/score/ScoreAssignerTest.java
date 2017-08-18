@@ -30,7 +30,7 @@ public class ScoreAssignerTest {
 
     private List<Question> questions;
     private Random random = new Random();
-    private int test_length = SettingsLoader.getSetting("number_of_events");
+    private int test_length = new SettingsLoader().getSetting("number_of_events");
 
     public ScoreAssignerTest() {
     }
