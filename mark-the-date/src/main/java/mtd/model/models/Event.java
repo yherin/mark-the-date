@@ -9,7 +9,7 @@ import mtd.model.models.Historical;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class Event extends Historical {
 

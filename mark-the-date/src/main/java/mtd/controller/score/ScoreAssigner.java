@@ -10,7 +10,7 @@ import mtd.model.models.Question;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class ScoreAssigner {
 

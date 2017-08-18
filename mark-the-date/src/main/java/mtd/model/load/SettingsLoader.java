@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public final class SettingsLoader extends Loader {
 

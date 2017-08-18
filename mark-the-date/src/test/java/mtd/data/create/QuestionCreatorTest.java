@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class QuestionCreatorTest {
 

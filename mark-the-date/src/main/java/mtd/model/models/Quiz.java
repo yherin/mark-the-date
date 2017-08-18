@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class Quiz {
 

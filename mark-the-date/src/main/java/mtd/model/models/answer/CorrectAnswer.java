@@ -7,7 +7,7 @@ package mtd.model.models.answer;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class CorrectAnswer extends Answer {
 

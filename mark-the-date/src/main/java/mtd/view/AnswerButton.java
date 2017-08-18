@@ -11,7 +11,7 @@ import mtd.model.models.answer.Answer;
 /**
  * JButton subclass which stores the Answer with which the button is associated.
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class AnswerButton extends JButton {
 

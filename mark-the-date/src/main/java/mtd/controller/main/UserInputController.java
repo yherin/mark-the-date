@@ -17,8 +17,10 @@ import mtd.view.GUICommand;
 import mtd.view.GameWindow;
 
 /**
+ * UserInputController performs functions of the controller in the MVC model. It
+ * controls move the GUI and data (GameWindow and QuizMaster).
+ * @author Jack Sheridan
  *
- * @author sjack
  */
 public class UserInputController {
 
@@ -30,7 +32,6 @@ public class UserInputController {
         this.model = model;
         addListenerButtonsToGUI();
     }
-
     class AnswerButtonListener implements ActionListener {
 
         @Override

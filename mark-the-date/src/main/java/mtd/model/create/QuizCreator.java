@@ -13,7 +13,7 @@ import mtd.controller.score.ScoreAssigner;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class QuizCreator {
 

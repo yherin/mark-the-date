@@ -7,7 +7,7 @@ import mtd.model.models.answer.RandomAnswer;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class ScoreCalculator {
 

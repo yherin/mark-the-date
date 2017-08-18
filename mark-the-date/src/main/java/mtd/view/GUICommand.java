@@ -7,7 +7,7 @@ package mtd.view;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public enum GUICommand {
     NEXT_QUESTION, PREVIOUS_QUESTION, CURRENT_QUESTION

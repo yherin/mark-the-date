@@ -23,8 +23,7 @@ import mtd.controller.score.ScoreAssigner;
 import mtd.controller.score.ScoreCalculator;
 
 /**
- *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class GamePlayer {
 

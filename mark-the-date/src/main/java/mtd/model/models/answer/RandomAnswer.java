@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class RandomAnswer extends Answer {
 

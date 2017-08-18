@@ -7,7 +7,7 @@ package mtd.model.models.answer;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public abstract class Answer implements Comparable<Answer> {
 

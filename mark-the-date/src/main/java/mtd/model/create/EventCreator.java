@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class EventCreator {
 

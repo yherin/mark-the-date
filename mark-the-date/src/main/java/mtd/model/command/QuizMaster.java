@@ -9,7 +9,7 @@ import mtd.view.GUICommand;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class QuizMaster {
 

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public abstract class Historical {
 

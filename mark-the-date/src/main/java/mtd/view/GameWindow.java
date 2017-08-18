@@ -23,7 +23,7 @@ import mtd.model.models.answer.Answer;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public class GameWindow implements Runnable {
 

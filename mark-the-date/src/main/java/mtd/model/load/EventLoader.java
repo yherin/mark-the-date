@@ -8,7 +8,7 @@ package mtd.model.load;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 public final class EventLoader extends Loader {
 

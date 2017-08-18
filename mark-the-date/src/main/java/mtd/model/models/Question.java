@@ -14,7 +14,7 @@ import mtd.model.models.answer.RandomAnswer;
 
 /**
  *
- * @author sjack
+ * @author Jack Sheridan
  */
 /**
  * Representation of a quiz question, containing the Event, one CorrectAnswer,
