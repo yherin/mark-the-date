@@ -12,7 +12,7 @@ import mtd.view.GUICommand;
 public class QuizMaster {
 
     private Question currentQuestion;
-    private final Quiz quiz;
+    private Quiz quiz;
     private Integer index;
     private int score;
 
@@ -47,7 +47,7 @@ public class QuizMaster {
      * @return Question The specified question.
      */
     public Question getSpecifiedQuestion(GUICommand guicmd) {
-
+        currentQuestion = quiz.getQuestions().get(index);
         if (guicmd == GUICommand.CURRENT_QUESTION) {
             return currentQuestion;
         }
@@ -58,7 +58,7 @@ public class QuizMaster {
                 currentQuestion = this.quiz.getQuestions().get(index);
                 return currentQuestion;
             } else {
-                System.exit(0);
+                return currentQuestion;
             }
 
         }
@@ -67,6 +67,10 @@ public class QuizMaster {
         }
 
         throw new IllegalStateException("GUICMD " + guicmd + " could not be understood");
+    }
+
+    public void buildNewQuiz() {
+        this.quiz = fetchQuizObject();
     }
 
     private boolean forward() {
@@ -116,6 +120,14 @@ public class QuizMaster {
      */
     public int getScore() {
         return this.score;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
 }

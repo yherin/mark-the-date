@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JButton;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.view.AnswerButton;
@@ -18,6 +19,7 @@ import mtd.view.GameWindow;
 /**
  * UserInputController performs functions of the controller in the MVC model. It
  * controls move the GUI and data (GameWindow and QuizMaster).
+ *
  * @author Jack Sheridan
  *
  */
@@ -31,6 +33,7 @@ public class UserInputController {
         this.model = model;
         addListenerButtonsToGUI();
     }
+
     class AnswerButtonListener implements ActionListener {
 
         @Override
@@ -41,6 +44,24 @@ public class UserInputController {
             System.out.println(model.getScore());
             gui.getTimer().reset();
             nextQuestion();
+        }
+
+    }
+
+    class PlayAgainButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            createNewQuiz();
+            Question q = model.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
+            gui.updateGUIToShowNextQuestion(q);
+        }
+
+        private void createNewQuiz() {
+            model.buildNewQuiz();
+            model.setIndex(0);
+            gui = new GameWindow(model);
+            addListenerButtonsToGUI();
         }
 
     }
@@ -61,8 +82,13 @@ public class UserInputController {
     }
 
     private void nextQuestion() {
+        Question current = this.model.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
         Question next = this.model.getSpecifiedQuestion(GUICommand.NEXT_QUESTION);
-        this.gui.update(next);
+        if (!current.equals(next)) {
+            this.gui.updateGUIToShowNextQuestion(next);
+        } else {
+            this.gui.addSummaryComponents();
+        }
 
     }
 

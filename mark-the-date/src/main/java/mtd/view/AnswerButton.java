@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mtd.view;
 
 import javax.swing.JButton;
@@ -21,12 +16,22 @@ public class AnswerButton extends JButton {
         this.answer = a;
     }
 
+    public AnswerButton() {
+
+    }
+
     public Answer getAnswer() {
-        return answer;
+        if (answer != null) {
+            return answer;
+        } else {
+            throw new IllegalStateException("Answer not initialised.");
+
+        }
     }
 
     public void setAnswer(Answer answer) {
         this.answer = answer;
+        this.setText(this.answer.toString());
     }
 
 }
