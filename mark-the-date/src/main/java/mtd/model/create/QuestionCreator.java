@@ -5,16 +5,13 @@
  */
 package mtd.model.create;
 
-import mtd.model.models.Event;
-import mtd.model.models.Question;
 import java.util.ArrayList;
 import java.util.List;
-import mtd.model.load.EventLoader;
 import mtd.model.load.SettingsLoader;
+import mtd.model.models.Event;
+import mtd.model.models.Question;
 import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /**
  *

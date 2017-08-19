@@ -5,22 +5,11 @@
  */
 package mtd.controller.main;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 import javax.swing.SwingUtilities;
 import mtd.model.command.QuizMaster;
-import mtd.model.create.EventCreator;
-import mtd.model.create.QuestionCreator;
-import mtd.model.create.RandomAnswerCreator;
-import mtd.model.models.Event;
 import mtd.model.models.Question;
-import mtd.model.models.answer.Answer;
 import mtd.view.GUICommand;
 import mtd.view.GameWindow;
-import mtd.controller.score.ScoreAssigner;
-import mtd.controller.score.ScoreCalculator;
 
 /**
  * @author Jack Sheridan

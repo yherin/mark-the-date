@@ -1,7 +1,5 @@
 package mtd.model.command;
 
-import java.util.List;
-import mtd.model.create.QuestionCreator;
 import mtd.model.create.QuizCreator;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;

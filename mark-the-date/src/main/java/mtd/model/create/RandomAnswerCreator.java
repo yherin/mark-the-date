@@ -5,10 +5,10 @@
  */
 package mtd.model.create;
 
-import mtd.model.models.answer.CorrectAnswer;
-import mtd.model.models.answer.RandomAnswer;
 import java.util.ArrayList;
 import java.util.List;
+import mtd.model.models.answer.CorrectAnswer;
+import mtd.model.models.answer.RandomAnswer;
 
 /**
  *

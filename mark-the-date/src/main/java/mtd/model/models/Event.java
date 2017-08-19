@@ -5,8 +5,6 @@
  */
 package mtd.model.models;
 
-import mtd.model.models.Historical;
-
 /**
  *
  * @author Jack Sheridan

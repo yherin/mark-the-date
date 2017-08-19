@@ -1,13 +1,10 @@
 package mtd.model.create;
 
-import mtd.model.models.Event;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.Set;
 import mtd.model.load.EventLoader;
 import mtd.model.load.SettingsLoader;
-
+import mtd.model.models.Event;
 import org.json.JSONException;
 import org.json.JSONObject;
 

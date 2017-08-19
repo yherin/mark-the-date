@@ -9,13 +9,11 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.Timer;
+import javax.swing.JTextArea;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.model.models.QuestionStopwatch;
@@ -29,7 +27,6 @@ public class GameWindow implements Runnable {
 
     private Container container;
     private Question currentQuestion;
-    private GridBagConstraints gbc;
     private JFrame frame;
     private QuizMaster logic;
     private List<AnswerButton> answerButtons;
@@ -38,7 +35,6 @@ public class GameWindow implements Runnable {
     public GameWindow(QuizMaster logic) {
         this.logic = logic;
         this.currentQuestion = logic.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
-        gbc = new GridBagConstraints();
         frame = new JFrame("Mark the date");
         frame.setSize(500, 500);
         this.answerButtons = createAnswerButtons();
@@ -51,37 +47,41 @@ public class GameWindow implements Runnable {
     }
 
     private void addComponents() {
-        gbc.gridheight = 2;
         addTimerLabel();
-        resetConstraints();
         addQuestionText();
-        resetConstraints();
         addAnswerButtons();
-        resetConstraints();
-
     }
 
     private void addTimerLabel() {
-        gbc.gridx = 3;
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.NORTHWEST;
         this.timer = new QuestionStopwatch();
-        container.add(this.timer);
+        container.add(this.timer, gbc);
     }
 
     private void addQuestionText() {
-
-        gbc.gridy = 0;
-        container.add(new JLabel(currentQuestion.getEvent().getDescription()));
-    }
-
-    private void resetConstraints() {
-        gbc = new GridBagConstraints();
-        gbc.gridheight = 2;
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        JTextArea questionText = new JTextArea(currentQuestion.getEvent().getDescription());
+        questionText.setEditable(false);
+        questionText.setLineWrap(false);
+        questionText.setFocusable(false);
+        container.add(questionText, gbc);
     }
 
     private void addAnswerButtons() {
-        gbc.gridy = 1;
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
         for (AnswerButton answerButton : this.answerButtons) {
-            container.add(answerButton);
+            gbc.gridx++;
+            container.add(answerButton, gbc);
         }
     }
 
@@ -117,8 +117,8 @@ public class GameWindow implements Runnable {
                 btn.setText(answers.get(count).toString());
                 count++;
             }
-            if (comp.getClass() == JLabel.class) {
-                JLabel event = (JLabel) comp;
+            if (comp.getClass() == JTextArea.class) {
+                JTextArea event = (JTextArea) comp;
                 event.setText(nextQuestion.getEvent().getDescription());
             }
         }
