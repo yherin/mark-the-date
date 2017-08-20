@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.create;
+package mtd.controller.create;
 
 import mtd.model.models.Event;
 import mtd.model.models.answer.CorrectAnswer;
@@ -11,6 +11,7 @@ import mtd.model.models.answer.RandomAnswer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import mtd.model.create.RandomAnswerCreator;
 import mtd.model.create.RandomAnswerCreator;
 import org.junit.After;
 import org.junit.AfterClass;

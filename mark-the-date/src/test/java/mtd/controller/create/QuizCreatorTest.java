@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.create;
+package mtd.controller.create;
 
+import mtd.model.create.QuizCreator;
 import mtd.model.create.QuizCreator;
 import mtd.model.load.SettingsLoader;
 import mtd.model.models.Question;

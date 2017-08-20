@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.command;
+package mtd.controller.command;
 
 import java.util.ArrayList;
 import java.util.List;
+import mtd.model.command.QuizMaster;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;

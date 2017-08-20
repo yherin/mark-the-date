@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.create;
+package mtd.controller.create;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import mtd.model.create.QuestionCreator;
+import mtd.model.create.QuestionCreator;
+import mtd.model.create.RandomAnswerCreator;
 import mtd.model.create.RandomAnswerCreator;
 import mtd.model.load.SettingsLoader;
 import mtd.model.models.Event;

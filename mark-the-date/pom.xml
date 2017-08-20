@@ -51,15 +51,12 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>mtd.data.*</param>
-                        <param>mtd.logic.*</param>
+                        <param>mtd.model.*</param>
+                        <param>mtd.view.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>mtd.*</param>
                     </targetTests>
-                    <excludedClasses>
-                        <excludedClass>mtd.data.construct.*</excludedClass>
-                    </excludedClasses>
                 </configuration>
             </plugin>
             <plugin>

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.create;
+package mtd.controller.create;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import mtd.model.create.EventPicker;
 import mtd.model.create.EventPicker;
 import mtd.model.load.EventLoader;
 import org.json.JSONObject;

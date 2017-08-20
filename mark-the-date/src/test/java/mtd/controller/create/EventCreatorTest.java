@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.create;
+package mtd.controller.create;
 
 import java.util.List;
+import mtd.model.create.EventCreator;
 import mtd.model.create.EventCreator;
 import mtd.model.load.SettingsLoader;
 import mtd.model.models.Event;

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.data.models;
+package mtd.controller.models;
 
+import mtd.model.models.Event;
 import mtd.model.models.Event;
 import org.junit.After;
 import org.junit.AfterClass;
