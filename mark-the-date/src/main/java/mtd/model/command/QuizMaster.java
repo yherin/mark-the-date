@@ -15,17 +15,19 @@ public class QuizMaster {
     private Quiz quiz;
     private Integer index;
     private int score;
+    private QuizCreator qc;
 
     public QuizMaster() {
-
-        this.index = 0;
-        this.quiz = fetchQuizObject();
+        qc = new QuizCreator();
+        fetchQuizObject();
         currentQuestion = quiz.getQuestions().get(index);
     }
 
-    private Quiz fetchQuizObject() {
-        QuizCreator qc = new QuizCreator();
-        return qc.createQuiz();
+    private void fetchQuizObject() {
+
+        this.index = 0;
+        this.score = 0;
+        this.quiz = qc.createQuiz();
     }
 
     /**
@@ -70,7 +72,7 @@ public class QuizMaster {
     }
 
     public void buildNewQuiz() {
-        this.quiz = fetchQuizObject();
+        fetchQuizObject();
     }
 
     private boolean forward() {
@@ -128,6 +130,15 @@ public class QuizMaster {
 
     public void setIndex(Integer index) {
         this.index = index;
+    }
+
+    /**
+     * FOR TESTING ONLY.
+     *
+     * @return Quiz quiz
+     */
+    public Quiz getQuiz() {
+        return this.quiz;
     }
 
 }

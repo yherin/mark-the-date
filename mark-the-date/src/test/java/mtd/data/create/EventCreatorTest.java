@@ -5,8 +5,10 @@
  */
 package mtd.data.create;
 
+import java.util.List;
 import mtd.model.create.EventCreator;
 import mtd.model.load.SettingsLoader;
+import mtd.model.models.Event;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,5 +38,16 @@ public class EventCreatorTest {
         this.desired = new SettingsLoader().getSetting("number_of_events");
         assertTrue("eventCreator produced " + created + " but should have only produced " + this.desired + ".",
                 created == this.desired);
+    }
+
+    @Test
+    public void eventCreatorProducedUniqueEvents() {
+        List<Event> list1 = ec.createEvents();
+        List<Event> list2 = ec.createEvents();
+        for (Event event2 : list2) {
+            for (Event event1 : list1) {
+                assertFalse(event2.equals(event1));
+            }
+        }
     }
 }

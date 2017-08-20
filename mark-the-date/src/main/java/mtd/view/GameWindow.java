@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mtd.view;
 
 import java.awt.Component;
@@ -97,22 +92,15 @@ public class GameWindow implements Runnable {
         summaryCreator.createAndMapComponents();
     }
 
-    private void addQuestionComponents() {
-        container.removeAll();
-        container.add(questionText);
-        for (AnswerButton answerButton : answerButtons) {
-            container.add(answerButton);
-
-        }
-    }
-
     public void addListenerToAnswerButton(ActionListener al, int index) {
         this.answerButtons.get(index).addActionListener(al);
     }
 
     public final void updateGUIToShowNextQuestion(Question nextQuestion) {
         updateAnswerLabels(nextQuestion.getShuffled());
-        updateQuestionText(nextQuestion.getEvent().toString());
+        updateQuestionText(nextQuestion.getEvent().getDescription());
+        timer.reset();
+        addQuestionComponents();
         showGUI();
     }
 
@@ -136,16 +124,30 @@ public class GameWindow implements Runnable {
         showGUI();
     }
 
+    private void addQuestionComponents() {
+        container.removeAll();
+        container.add(questionText);
+        for (AnswerButton answerButton : answerButtons) {
+            container.add(answerButton);
+
+        }
+        container.add(timer);
+    }
+
+    private void clearComponents() {
+
+    }
+
     @Override
     public void run() {
         this.showGUI();
     }
 
     private void showGUI() {
-        this.timer.start();
 
         frame.setVisible(true);
         frame.repaint();
+        this.timer.start();
     }
 
     public QuestionStopwatch getTimer() {

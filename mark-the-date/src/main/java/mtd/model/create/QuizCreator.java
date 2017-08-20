@@ -18,8 +18,13 @@ import mtd.model.models.Quiz;
 public class QuizCreator {
 
     private Integer numberOfEvents;
+    private Quiz quiz;
+    private EventCreator ec;
 
     public QuizCreator() {
+        ec = new EventCreator();
+        List<Question> questions = createQuestions();
+        quiz = new Quiz(questions);
     }
 
     public Quiz createQuiz() {
@@ -42,7 +47,7 @@ public class QuizCreator {
     }
 
     private List<Event> createEvents() {
-        EventCreator ec = new EventCreator();
+
         return ec.createEvents();
     }
 }

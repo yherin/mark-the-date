@@ -34,4 +34,9 @@ public class AnswerButton extends JButton {
         this.setText(this.answer.toString());
     }
 
+    @Override
+    public String toString() {
+        return "AnswerButton for answer " + this.answer.toString();
+    }
+
 }

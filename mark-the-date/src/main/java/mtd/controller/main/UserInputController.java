@@ -14,6 +14,8 @@ import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.view.AnswerButton;
 import mtd.view.GUICommand;
+import mtd.view.GUIComponent;
+import mtd.view.GUIComponentMap;
 import mtd.view.GameWindow;
 
 /**
@@ -59,9 +61,6 @@ public class UserInputController {
 
         private void createNewQuiz() {
             model.buildNewQuiz();
-            model.setIndex(0);
-            gui = new GameWindow(model);
-            addListenerButtonsToGUI();
         }
 
     }
@@ -71,6 +70,8 @@ public class UserInputController {
         for (int i = 0; i < listeners.size(); i++) {
             this.gui.addListenerToAnswerButton(listeners.get(i), i);
         }
+        JButton playAgain = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_PLAY_AGAIN);
+        playAgain.addActionListener(new PlayAgainButtonListener());
     }
 
     private List<AnswerButtonListener> createListeners() {
