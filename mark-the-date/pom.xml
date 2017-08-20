@@ -52,7 +52,7 @@
                 <configuration>
                     <targetClasses>
                         <param>mtd.model.*</param>
-                        <param>mtd.view.*</param>
+                        <param>mtd.controller.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>mtd.*</param>

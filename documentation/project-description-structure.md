@@ -5,10 +5,13 @@ A historical quiz where the player guesses the time period of specific events fr
 # Code status
 
 ## On pressing 'Run Project':
-- Questions are chosen randomly and shown in a basic UI, with answer buttons.
+- Questions are chosen randomly and shown in a basic UI, with answer buttons and a question timer.
 - The buttons record the answer and load the next question.
 - Score is logged to `System.out`.
-- After 15 questions, program exits with code 0.
+- After 15 questions, score is shown. User can either select 'quit' or 'play again', which loads a set of questions different from the previous set.
+
+## Issues
+- Score is missing from final screen (JTextArea) not yet added.
 
 ## Code quality
 - The code documentation (Javadoc) is not as good as I would like.
@@ -35,7 +38,7 @@ Player
 - Introduction during loading screen.
 - "One click start" that begins a new game. Little to no setup required from the player. __done__
 - Countdown timer until the game ends.
-- A quicker guess awards more points.
+- A quicker guess awards more points. __almsot done__
 - User presented with 4 possible answers. __done__
   - One will be correct. Awards 500 points (reduced by time taken).
   - The remaining answers will be randomly generated (but will be 'sanity checked'). __done__

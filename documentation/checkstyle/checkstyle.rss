@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 23,
+      <title>File: 30,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.create.QuestionCreator.java">mtd/data/create/QuestionCreator.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.answer.CorrectAnswer.java">mtd/model/models/answer/CorrectAnswer.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.load.SettingsLoader.java">mtd/data/load/SettingsLoader.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.GUIComponent.java">mtd/view/GUIComponent.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.AnswerButton.java">mtd/gui/AnswerButton.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.create.QuizCreator.java">mtd/model/create/QuizCreator.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.answer.RandomAnswer.java">mtd/data/models/answer/RandomAnswer.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.command.QuizMaster.java">mtd/model/command/QuizMaster.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.logic.main.Main.java">mtd/logic/main/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.create.QuestionCreator.java">mtd/model/create/QuestionCreator.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.create.EventPicker.java">mtd/data/create/EventPicker.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.create.EventCreator.java">mtd/model/create/EventCreator.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.create.QuizCreator.java">mtd/data/create/QuizCreator.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.GUIComponentMap.java">mtd/view/GUIComponentMap.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.logic.score.ScoreCalculator.java">mtd/logic/score/ScoreCalculator.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.create.RandomAnswerCreator.java">mtd/model/create/RandomAnswerCreator.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.Event.java">mtd/data/models/Event.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.QuestionStopwatch.java">mtd/model/models/QuestionStopwatch.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.create.RandomAnswerCreator.java">mtd/data/create/RandomAnswerCreator.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.answer.RandomAnswer.java">mtd/model/models/answer/RandomAnswer.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.create.EventCreator.java">mtd/data/create/EventCreator.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.controller.score.ScoreCalculator.java">mtd/controller/score/ScoreCalculator.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.Question.java">mtd/data/models/Question.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.answer.Answer.java">mtd/model/models/answer/Answer.java</a>
                 </td>
                 <td>
                   0
@@ -214,7 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.logic.main.GamePlayer.java">mtd/logic/main/GamePlayer.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.AnswerButton.java">mtd/view/AnswerButton.java</a>
                 </td>
                 <td>
                   0
@@ -228,7 +228,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.answer.CorrectAnswer.java">mtd/data/models/answer/CorrectAnswer.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.Quiz.java">mtd/model/models/Quiz.java</a>
                 </td>
                 <td>
                   0
@@ -242,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.UserInputController.java">mtd/gui/UserInputController.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.controller.main.Main.java">mtd/controller/main/Main.java</a>
                 </td>
                 <td>
                   0
@@ -256,7 +256,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.command.QuizMaster.java">mtd/data/command/QuizMaster.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.Event.java">mtd/model/models/Event.java</a>
                 </td>
                 <td>
                   0
@@ -270,7 +270,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.logic.score.ScoreAssigner.java">mtd/logic/score/ScoreAssigner.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.create.ResultsComponentCreator.java">mtd/view/create/ResultsComponentCreator.java</a>
                 </td>
                 <td>
                   0
@@ -284,7 +284,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.GUICommand.java">mtd/gui/GUICommand.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.controller.main.GamePlayer.java">mtd/controller/main/GamePlayer.java</a>
                 </td>
                 <td>
                   0
@@ -298,7 +298,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.gui.GameWindow.java">mtd/gui/GameWindow.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.GameWindow.java">mtd/view/GameWindow.java</a>
                 </td>
                 <td>
                   0
@@ -312,7 +312,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.answer.Answer.java">mtd/data/models/answer/Answer.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.load.Loader.java">mtd/model/load/Loader.java</a>
                 </td>
                 <td>
                   0
@@ -326,7 +326,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.Quiz.java">mtd/data/models/Quiz.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.GUICommand.java">mtd/view/GUICommand.java</a>
                 </td>
                 <td>
                   0
@@ -340,7 +340,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.load.EventLoader.java">mtd/data/load/EventLoader.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.model.create.EventPicker.java">mtd/model/create/EventPicker.java</a>
                 </td>
                 <td>
                   0
@@ -354,7 +354,105 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#mtd.data.models.Historical.java">mtd/data/models/Historical.java</a>
+                  <a href="${project.url}/checkstyle.html#mtd.view.create.ComponentCreator.java">mtd/view/create/ComponentCreator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.model.load.SettingsLoader.java">mtd/model/load/SettingsLoader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.controller.score.ScoreAssigner.java">mtd/controller/score/ScoreAssigner.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.controller.main.UserInputController.java">mtd/controller/main/UserInputController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.model.load.EventLoader.java">mtd/model/load/EventLoader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.view.create.QuestionComponentCreator.java">mtd/view/create/QuestionComponentCreator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.Historical.java">mtd/model/models/Historical.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#mtd.model.models.Question.java">mtd/model/models/Question.java</a>
                 </td>
                 <td>
                   0
