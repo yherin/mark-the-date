@@ -6,6 +6,7 @@
 package mtd.model.load;
 
 import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -21,12 +22,19 @@ public final class SettingsLoader extends Loader {
     }
 
     public final int getSetting(String key) {
-        if (!SETTINGS.containsKey(key)) {
-            JSONObject settingsFile = readJSONObject();
-            SETTINGS.put(key, settingsFile.getInt(key));
+        try {
+            if (!SETTINGS.containsKey(key)) {
+                JSONObject settingsFile = readJSONObject();
+                SETTINGS.put(key, settingsFile.getInt(key));
+                return SETTINGS.get(key);
+            } else {
 
+                return SETTINGS.get(key);
+            }
+        } catch (JSONException e) {
+            System.err.println(e.getCause());
         }
-        return SETTINGS.get(key);
+        return 15; //default number of events
     }
 
     @Override

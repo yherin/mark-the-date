@@ -6,6 +6,7 @@
 package mtd.view.create;
 
 import java.awt.Container;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,8 +56,11 @@ public class QuestionComponentCreator extends ComponentCreator {
     }
 
     private void createQuestionText() {
-        JTextArea q = new JTextArea("question not loaded.");
+        JTextArea q = new JTextArea("question not loaded.",5,50);
         q.setEditable(false);
+        q.setWrapStyleWord(true);
+        q.setLineWrap(true);
+        q.setFont(new Font("sansserif", 0, 14));
         questionText = q;
     }
 

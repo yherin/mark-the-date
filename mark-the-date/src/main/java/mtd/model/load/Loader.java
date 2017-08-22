@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -25,7 +26,7 @@ public abstract class Loader {
         assignFilePath();
     }
 
-    public JSONObject getJSONRoot() {
+    public JSONObject getJSONRoot() throws JSONException {
 
         return readJSONObject();
     }
@@ -58,7 +59,7 @@ public abstract class Loader {
         return bf;
     }
 
-    protected final JSONObject readJSONObject() {
+    protected final JSONObject readJSONObject() throws JSONException {
 
         try (BufferedReader br = getBufferedReader()) {
             String jsonAsString = read(br);

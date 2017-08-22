@@ -15,16 +15,20 @@ import org.json.JSONObject;
 public class EventCreator {
 
     private final int quantity;
-    private final JSONObject eventsJSON;
-    private final EventPicker eventPicker;
-    private final List<Event> processedEvents;
+    private JSONObject eventsJSON;
+    private EventPicker eventPicker;
+    private List<Event> processedEvents;
 
     public EventCreator() {
         this.quantity = new SettingsLoader().getSetting("number_of_events");
+        try {
+            eventsJSON = new EventLoader().getJSONRoot().getJSONObject("events");
+            processedEvents = new ArrayList<>();
+            eventPicker = new EventPicker(eventsJSON);
+        } catch (JSONException e) {
+            System.err.println(e.getCause());
+        }
 
-        eventsJSON = new EventLoader().getJSONRoot().getJSONObject("events");
-        processedEvents = new ArrayList<>();
-        eventPicker = new EventPicker(eventsJSON);
     }
 
     /**
@@ -54,7 +58,7 @@ public class EventCreator {
             String desc = event.getString("desc");
             return new Event(year, desc);
         } catch (JSONException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getCause());
 
         }
         throw new IllegalStateException("event object creation failed");

@@ -5,6 +5,7 @@
  */
 package mtd.model.create;
 
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
@@ -59,13 +60,15 @@ public class EventPicker {
 
     private void putUIDsIntoIntegerArray() {
         int count = 0;
-        Set<String> keySet = this.events.keySet();
+//        Set<String> keySet = this.events.keySet();
 
-        for (String key : keySet) {
-
-            this.uniqueIDs[count] = key;
+//        for (String key : keySet) {
+        Iterator<String> ite = this.events.keys();
+        while (ite.hasNext()){
+            this.uniqueIDs[count] = ite.next();
             count++;
         }
+//        }
 
     }
 

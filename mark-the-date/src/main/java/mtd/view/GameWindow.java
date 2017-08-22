@@ -4,9 +4,12 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -58,7 +61,7 @@ public class GameWindow implements Runnable {
 
     private void createFrame() {
         frame = new JFrame("Mark the date");
-        frame.setSize(500, 500);
+        frame.setSize(750, 750);
         frame.setLayout(new GridBagLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container = frame.getContentPane();
@@ -104,6 +107,14 @@ public class GameWindow implements Runnable {
         showGUI();
     }
 
+    private GridBagConstraints prepareGBCForQuestionView() {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.NORTH;
+        return gbc;
+    }
+
     public final void updateAnswerLabels(List<Answer> shuffledAnswers) {
         for (int i = 0; i < shuffledAnswers.size(); i++) {
             answerButtons.get(i).setAnswer(shuffledAnswers.get(i));
@@ -126,12 +137,18 @@ public class GameWindow implements Runnable {
 
     private void addQuestionComponents() {
         container.removeAll();
-        container.add(questionText);
+        GridBagConstraints gbc = prepareGBCForQuestionView();
+        container.add(questionText, gbc);
+        gbc.gridy++;
+        gbc.gridx++;
+        gbc.anchor = GridBagConstraints.CENTER;
         for (AnswerButton answerButton : answerButtons) {
-            container.add(answerButton);
-
+            gbc.gridx++;
+            container.add(answerButton, gbc);
         }
-        container.add(timer);
+        gbc.gridx = 0;
+        gbc.anchor = GridBagConstraints.NORTHWEST;
+        container.add(timer, gbc);
     }
 
     private void clearComponents() {

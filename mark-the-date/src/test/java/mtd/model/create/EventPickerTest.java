@@ -11,6 +11,7 @@ import java.util.Set;
 import mtd.model.create.EventPicker;
 import mtd.model.create.EventPicker;
 import mtd.model.load.EventLoader;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -38,7 +39,7 @@ public class EventPickerTest {
     private final Random RNG;
     private final int quantity;
      */
-    public EventPickerTest() {
+    public EventPickerTest() throws JSONException {
 
         jso = new EventLoader().getJSONRoot().getJSONObject("events");
         ep1 = new EventPicker(jso);
@@ -103,7 +104,7 @@ public class EventPickerTest {
     @Test
     public void validEventsJSONObject() {
         assertNotNull("null JSONObject", jso);
-        assertTrue("empty JSONObject", jso.keySet().size() >= 1);
+        assertTrue("empty JSONObject", jso.length() >= 1);
 
     }
 
