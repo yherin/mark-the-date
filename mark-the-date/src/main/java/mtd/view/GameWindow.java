@@ -40,7 +40,8 @@ public class GameWindow implements Runnable {
     private QuestionStopwatch timer;
 
     //summary view
-    private JTextArea summary;
+    private JTextArea scoreText;
+    private JTextArea scoreInt;
     private JButton quit;
     private JButton newGame;
 
@@ -56,7 +57,6 @@ public class GameWindow implements Runnable {
         addQuestionComponents();
         updateAnswerLabels(currentQuestion.getShuffled());
         this.showGUI();
-
     }
 
     private void createFrame() {
@@ -85,7 +85,8 @@ public class GameWindow implements Runnable {
         //Summary components
         this.quit = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_QUIT);
         this.newGame = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_PLAY_AGAIN);
-        this.summary = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SUMMARY_TEXT);
+        this.scoreText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SUMMARY_TEXT);
+        this.scoreInt = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SCORE_INT);
     }
 
     private void createAndMapComponents() {
@@ -129,7 +130,8 @@ public class GameWindow implements Runnable {
 
     public final void addSummaryComponents() {
         container.removeAll();
-        container.add(summary);
+        container.add(scoreText);
+        container.add(scoreInt);
         container.add(quit);
         container.add(newGame);
         showGUI();
@@ -147,12 +149,9 @@ public class GameWindow implements Runnable {
             container.add(answerButton, gbc);
         }
         gbc.gridx = 0;
-        gbc.anchor = GridBagConstraints.NORTHWEST;
+        gbc.gridy += 2;
+        gbc.anchor = GridBagConstraints.NORTHEAST;
         container.add(timer, gbc);
-    }
-
-    private void clearComponents() {
-
     }
 
     @Override

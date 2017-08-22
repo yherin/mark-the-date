@@ -1,5 +1,6 @@
 package mtd.model.command;
 
+import mtd.controller.score.ScoreTracker;
 import mtd.model.create.QuizCreator;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;
@@ -16,9 +17,11 @@ public class QuizMaster {
     private Integer index;
     private int score;
     private QuizCreator qc;
+    private ScoreTracker scoreTracker;
 
     public QuizMaster() {
         qc = new QuizCreator();
+        scoreTracker = new ScoreTracker();
         fetchQuizObject();
         currentQuestion = quiz.getQuestions().get(index);
     }
@@ -40,8 +43,7 @@ public class QuizMaster {
     }
 
     /**
-     * Returns a Question object based on the command given (current,
-     * next)
+     * Returns a Question object based on the command given (current, next)
      *
      * @param guicmd GUICommand which specifies the question to return. At the
      * point of return, the question returned is now QuizMaster.currentQuestion
@@ -102,13 +104,10 @@ public class QuizMaster {
     /**
      * Adds the given number of points to the player's score.
      *
-     * @param int non zero positive integer points
+     * @param points non zero positive integer points
      */
     public void addPointsToScore(int points) {
-        if (points < 1) {
-            return;
-        }
-        this.score += points;
+        this.scoreTracker.addPointsToScore(points);
     }
 
     /**
@@ -117,7 +116,7 @@ public class QuizMaster {
      * @return int the current score.
      */
     public int getScore() {
-        return this.score;
+        return this.scoreTracker.getScore();
     }
 
     public Integer getIndex() {
@@ -126,6 +125,10 @@ public class QuizMaster {
 
     public void setIndex(Integer index) {
         this.index = index;
+    }
+
+    public void resetScore() {
+        this.scoreTracker.reset();
     }
 
     /**

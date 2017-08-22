@@ -22,7 +22,8 @@ public class ResultsComponentCreator extends ComponentCreator {
     private JPanel resultsPage;
     private JButton playAgain;
     private JButton quit;
-    private JTextArea summary;
+    private JTextArea scoreSummary;
+    private JTextArea scoreInt;
 
     public ResultsComponentCreator() {
     }
@@ -30,6 +31,7 @@ public class ResultsComponentCreator extends ComponentCreator {
     @Override
     void createComponents() {
         createScoreSummary();
+        createScoreTextArea();
         createQuitButton();
         createPlayAgainButton();
     }
@@ -38,13 +40,23 @@ public class ResultsComponentCreator extends ComponentCreator {
     void mapComponents() {
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_QUIT, quit);
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_PLAY_AGAIN, playAgain);
-        GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_SUMMARY_TEXT, summary);
+        GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_SUMMARY_TEXT, scoreSummary);
+        GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_SCORE_INT, scoreInt);
+
     }
 
     private void createScoreSummary() {
         String scoreString = "Your score: ";
-        summary = new JTextArea(scoreString);
-        summary.setEditable(false);
+        scoreSummary = new JTextArea(scoreString);
+        scoreSummary.setEditable(false);
+    }
+
+    private void createScoreTextArea() {
+        scoreInt = new JTextArea();
+        String score = "";
+        scoreInt.setText(score);
+        scoreInt.setEditable(false);
+
     }
 
     private void createPlayAgainButton() {

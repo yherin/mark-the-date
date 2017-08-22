@@ -42,20 +42,20 @@ public class EventPicker {
     public String selectEventNotYetSelected() {
         boolean foundSuitableUID = false;
         if (this.usedUIDs.size() == this.uniqueIDs.length) {
-            return "";
+            return "NO_EVENT";
         }
         while (!foundSuitableUID) {
             Integer chosenNumber = (createSuitableRandom());
-            if (chosenNumber > uniqueIDs.length || chosenNumber < 0) {
-                return "";
-            }
-            String key = uniqueIDs[chosenNumber];
-            if (!usedUIDs.contains(key)) {
-                usedUIDs.add(key);
-                return key;
+            if (chosenNumber < uniqueIDs.length && chosenNumber >= 0) {
+
+                String key = uniqueIDs[chosenNumber];
+                if (!usedUIDs.contains(key)) {
+                    usedUIDs.add(key);
+                    return key;
+                }
             }
         }
-        return "";
+        return "NO_EVENT";
     }
 
     private void putUIDsIntoIntegerArray() {
@@ -64,7 +64,7 @@ public class EventPicker {
 
 //        for (String key : keySet) {
         Iterator<String> ite = this.events.keys();
-        while (ite.hasNext()){
+        while (ite.hasNext()) {
             this.uniqueIDs[count] = ite.next();
             count++;
         }

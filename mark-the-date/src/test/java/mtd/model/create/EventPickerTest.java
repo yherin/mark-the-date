@@ -69,13 +69,13 @@ public class EventPickerTest {
     }
 
     @Test
-    public void eventPickerReturnsBlankStringWhenNoUnpickedEvents() {
-        assertNotEquals("eventPicker returned \"\" after first call", ep2.selectEventNotYetSelected(), "");
+    public void eventPickerReturnsErrorStringWhenNoUnpickedEvents() {
+        assertNotEquals("eventPicker returned \"NO_EVENT\" after first call", ep2.selectEventNotYetSelected(), "NO_EVENT");
         for (int i = 0; i < shouldFailAfterThisManyEvents + 1; i++) {
             ep2.selectEventNotYetSelected();
         }
-        assertEquals("eventPicker did not return \"\" when calling more than number of events",
-                ep2.selectEventNotYetSelected(), "");
+        assertEquals("eventPicker did not return \"NO_EVENT\" when calling more than number of events",
+                ep2.selectEventNotYetSelected(), "NO_EVENT");
     }
 
     @Test

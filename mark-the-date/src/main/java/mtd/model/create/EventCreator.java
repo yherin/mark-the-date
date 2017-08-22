@@ -44,9 +44,14 @@ public class EventCreator {
         ArrayList<Event> listOfEvents = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
             String key = eventPicker.selectEventNotYetSelected();
-
-            Event event = createIndividualEventObject(key);
-            listOfEvents.add(event);
+            if (!key.equals("NO_EVENT")) {
+                Event event = createIndividualEventObject(key);
+                listOfEvents.add(event);
+            } else {
+                i--;
+                System.out.println("UUIDS RESET! Ran out of questions");
+                this.eventPicker.getUsedUIDs().clear();
+            }
         }
         return listOfEvents;
     }

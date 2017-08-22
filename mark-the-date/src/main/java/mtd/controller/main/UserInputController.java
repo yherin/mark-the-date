@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.view.AnswerButton;
@@ -15,7 +16,8 @@ import mtd.view.GameWindow;
 
 /**
  * UserInputController performs functions of the controller in the MVC model. It
- * controls the GUI View and asks for data from Model (GameWindow and QuizMaster).
+ * controls the GUI View and asks for data from Model (GameWindow and
+ * QuizMaster).
  *
  * @author Jack Sheridan
  *
@@ -32,20 +34,23 @@ public class UserInputController {
     }
 
     class AnswerButtonListener implements ActionListener {
+
         /**
          * When AnswerButton is clicked: timer is stopped, score for the
          * question is added to the total score, timer is reset. Then QuizMaster
          * (Model) is asked to provide the next question.
+         *
          * @param ActionEvent ae caused by clicking AnswerButton.
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
             AnswerButton clicked = (AnswerButton) ae.getSource();
+            clicked.setEnabled(false);
             gui.getTimer().stop();
             model.addPointsToScore(clicked.getAnswer().getScore());
-            System.out.println(model.getScore());
-            gui.getTimer().reset();
             nextQuestion();
+            gui.getTimer().reset();
+            clicked.setEnabled(true);
         }
 
     }
@@ -55,6 +60,7 @@ public class UserInputController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             createNewQuiz();
+            model.resetScore();
             Question q = model.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
             gui.updateGUIToShowNextQuestion(q);
         }
@@ -88,6 +94,8 @@ public class UserInputController {
         if (!current.equals(next)) {
             this.gui.updateGUIToShowNextQuestion(next);
         } else {
+            JTextArea score = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SCORE_INT);
+            score.setText(String.valueOf(this.model.getScore()));
             this.gui.addSummaryComponents();
         }
 
