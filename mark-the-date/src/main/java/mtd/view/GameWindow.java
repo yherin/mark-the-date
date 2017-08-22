@@ -48,17 +48,18 @@ public class GameWindow implements Runnable {
     //Utility
     private ResultsComponentCreator summaryCreator;
     private QuestionComponentCreator questionComponentCreator;
-
+    
     public GameWindow(QuizMaster logic) {
         assignMembers(logic);
         createFrame();
         createAndMapComponents();
         assignCreatedComponentsToLocalVariables();
         addQuestionComponents();
+        updateQuestionText(currentQuestion.getEvent().getDescription());
         updateAnswerLabels(currentQuestion.getShuffled());
         this.showGUI();
     }
-
+    
     private void createFrame() {
         frame = new JFrame("Mark the date");
         frame.setSize(750, 750);
@@ -66,12 +67,12 @@ public class GameWindow implements Runnable {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container = frame.getContentPane();
     }
-
+    
     private void assignMembers(QuizMaster logic) {
         this.logic = logic;
         this.currentQuestion = this.logic.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
     }
-
+    
     private void assignCreatedComponentsToLocalVariables() {
         //Question components
         answerButtons = new ArrayList<>();
@@ -88,18 +89,18 @@ public class GameWindow implements Runnable {
         this.scoreText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SUMMARY_TEXT);
         this.scoreInt = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SCORE_INT);
     }
-
+    
     private void createAndMapComponents() {
         questionComponentCreator = new QuestionComponentCreator();
         questionComponentCreator.createAndMapComponents();
         summaryCreator = new ResultsComponentCreator();
         summaryCreator.createAndMapComponents();
     }
-
+    
     public void addListenerToAnswerButton(ActionListener al, int index) {
         this.answerButtons.get(index).addActionListener(al);
     }
-
+    
     public final void updateGUIToShowNextQuestion(Question nextQuestion) {
         updateAnswerLabels(nextQuestion.getShuffled());
         updateQuestionText(nextQuestion.getEvent().getDescription());
@@ -107,7 +108,7 @@ public class GameWindow implements Runnable {
         addQuestionComponents();
         showGUI();
     }
-
+    
     private GridBagConstraints prepareGBCForQuestionView() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -115,19 +116,19 @@ public class GameWindow implements Runnable {
         gbc.anchor = GridBagConstraints.NORTH;
         return gbc;
     }
-
+    
     public final void updateAnswerLabels(List<Answer> shuffledAnswers) {
         for (int i = 0; i < shuffledAnswers.size(); i++) {
             answerButtons.get(i).setAnswer(shuffledAnswers.get(i));
         }
-
+        
     }
-
+    
     private void updateQuestionText(String text) {
         JTextArea event = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_QUESTION_TEXT);
         event.setText(text);
     }
-
+    
     public final void addSummaryComponents() {
         container.removeAll();
         container.add(scoreText);
@@ -136,7 +137,7 @@ public class GameWindow implements Runnable {
         container.add(newGame);
         showGUI();
     }
-
+    
     private void addQuestionComponents() {
         container.removeAll();
         GridBagConstraints gbc = prepareGBCForQuestionView();
@@ -153,21 +154,21 @@ public class GameWindow implements Runnable {
         gbc.anchor = GridBagConstraints.NORTHEAST;
         container.add(timer, gbc);
     }
-
+    
     @Override
     public void run() {
         this.showGUI();
     }
-
+    
     private void showGUI() {
-
+        
         frame.setVisible(true);
         frame.repaint();
         this.timer.start();
     }
-
+    
     public QuestionStopwatch getTimer() {
         return timer;
     }
-
+    
 }
