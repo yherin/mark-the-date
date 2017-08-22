@@ -15,7 +15,7 @@ import mtd.view.GameWindow;
 
 /**
  * UserInputController performs functions of the controller in the MVC model. It
- * controls move the GUI and data (GameWindow and QuizMaster).
+ * controls the GUI View and asks for data from Model (GameWindow and QuizMaster).
  *
  * @author Jack Sheridan
  *
@@ -32,7 +32,12 @@ public class UserInputController {
     }
 
     class AnswerButtonListener implements ActionListener {
-
+        /**
+         * When AnswerButton is clicked: timer is stopped, score for the
+         * question is added to the total score, timer is reset. Then QuizMaster
+         * (Model) is asked to provide the next question.
+         * @param ActionEvent ae caused by clicking AnswerButton.
+         */
         @Override
         public void actionPerformed(ActionEvent ae) {
             AnswerButton clicked = (AnswerButton) ae.getSource();

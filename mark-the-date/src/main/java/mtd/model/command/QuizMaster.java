@@ -40,7 +40,7 @@ public class QuizMaster {
     }
 
     /**
-     * Returns a Question object based on the command given (current, prev,
+     * Returns a Question object based on the command given (current,
      * next)
      *
      * @param guicmd GUICommand which specifies the question to return. At the
@@ -64,11 +64,7 @@ public class QuizMaster {
             }
 
         }
-        if (guicmd == GUICommand.PREVIOUS_QUESTION) {
-            throw new UnsupportedOperationException("Not yet implemented.");
-        }
-
-        throw new IllegalStateException("GUICMD " + guicmd + " could not be understood");
+        throw new UnsupportedOperationException("GUICMD " + guicmd + " could not be understood");
     }
 
     public void buildNewQuiz() {
