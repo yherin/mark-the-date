@@ -56,11 +56,11 @@ public class QuestionComponentCreator extends ComponentCreator {
     }
 
     private void createQuestionText() {
-        JTextArea q = new JTextArea("question not loaded.",10,15);
+        JTextArea q = new JTextArea("question not loaded.",15,18);
         q.setEditable(false);
         q.setWrapStyleWord(true);
         q.setLineWrap(true);
-        q.setFont(new Font("sansserif", 0, 20));
+        q.setFont(new Font("sansserif", 0, 24));
         questionText = q;
     }
 
