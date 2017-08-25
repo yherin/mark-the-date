@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.controller.main;
+package mtd.controller.logic;
 
 import javax.swing.SwingUtilities;
 import mtd.model.command.QuizMaster;

@@ -53,7 +53,8 @@
                 <configuration>
                     <targetClasses>
                         <param>mtd.model.*</param>
-                        <param>mtd.controller.*</param>
+                        <param>mtd.controller.logic.*</param>
+                        <param>mtd.controller.score.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>mtd.*</param>

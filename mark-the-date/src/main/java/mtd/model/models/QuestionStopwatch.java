@@ -1,5 +1,6 @@
 package mtd.model.models;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ public class QuestionStopwatch extends JLabel {
     public QuestionStopwatch() {
         countdown = instantiateNewTimer();
         setText(String.valueOf(currentTime));
+        setFont(new Font("sansserif", 0, 28));
     }
 
     private Timer instantiateNewTimer() {
@@ -23,15 +25,12 @@ public class QuestionStopwatch extends JLabel {
     }
 
     private ActionListener instantiateNewActionListener() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                currentTime--;
-                setText(String.valueOf(currentTime));
-                if (currentTime <= 0) {
-                    final Timer timer = (Timer) ae.getSource();
-                    timer.stop();
-                }
+        return (ActionEvent ae) -> {
+            currentTime--;
+            setText(String.valueOf(currentTime));
+            if (currentTime <= 0) {
+                final Timer timer = (Timer) ae.getSource();
+                timer.stop();
             }
         };
     }
@@ -43,7 +42,6 @@ public class QuestionStopwatch extends JLabel {
     public void reset() {
         currentTime = startTime;
         this.currentTime = this.startTime;
-//        this.countdown = instantiateNewTimer();
     }
 
     public void stop() {

@@ -32,7 +32,7 @@ public class QuestionComponentCreator extends ComponentCreator {
     private QuestionStopwatch timer;
 
     public QuestionComponentCreator() {
-        
+
     }
 
     @Override
@@ -56,7 +56,7 @@ public class QuestionComponentCreator extends ComponentCreator {
     }
 
     private void createQuestionText() {
-        JTextArea q = new JTextArea("question not loaded.",15,18);
+        JTextArea q = new JTextArea("question not loaded.", 5, 20);
         q.setEditable(false);
         q.setWrapStyleWord(true);
         q.setLineWrap(true);

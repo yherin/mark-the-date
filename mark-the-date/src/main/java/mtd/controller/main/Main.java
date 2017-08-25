@@ -5,6 +5,7 @@
  */
 package mtd.controller.main;
 
+import mtd.controller.logic.GamePlayer;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 

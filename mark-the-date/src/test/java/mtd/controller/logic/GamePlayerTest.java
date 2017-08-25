@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.controller.main;
+package mtd.controller.logic;
 
-import mtd.controller.main.GamePlayer;
+import mtd.controller.logic.GamePlayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

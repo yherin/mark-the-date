@@ -1,4 +1,4 @@
-package mtd.controller.main;
+package mtd.controller.logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,7 @@ import mtd.view.GUIComponentMap;
 import mtd.view.GameWindow;
 
 /**
- * UserInputController performs functions of the controller in the MVC model. It
+ * UserInputController performs functions of the controller in the MVC modelwa. It
  * controls the GUI View and asks for data from Model (GameWindow and
  * QuizMaster).
  *
