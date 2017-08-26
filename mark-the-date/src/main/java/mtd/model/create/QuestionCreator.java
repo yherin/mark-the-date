@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mtd.model.create;
 
 import java.util.ArrayList;
@@ -14,12 +9,19 @@ import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
 
 /**
- *
+ * Handles the creation of Question objects from Event objects.
+ * @see Question
  * @author Jack Sheridan
  */
 public class QuestionCreator {
 
+    /**
+     * List of Event objects, from which Question objects are created.
+     */
     private final List<Event> events;
+    /**
+     * Used to create RandomAnswer objects.
+     */
     private final RandomAnswerCreator rac;
 
     public QuestionCreator(List<Event> events, RandomAnswerCreator rac) {
@@ -27,6 +29,12 @@ public class QuestionCreator {
         this.rac = rac;
     }
 
+    /**
+     * Creates a returns a list of questions. The size of the list is determined
+     * by configuration settings.json.
+     * @see Question
+     * @return List<Question> list of Question objects.
+     */
     public ArrayList<Question> getListOfQuestions() {
         ArrayList<Question> questionList = new ArrayList<>();
         int quantity = new SettingsLoader().getSetting("number_of_events");

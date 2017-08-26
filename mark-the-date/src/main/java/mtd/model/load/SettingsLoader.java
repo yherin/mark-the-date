@@ -6,6 +6,7 @@
 package mtd.model.load;
 
 import java.util.HashMap;
+import javax.swing.JFrame;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,10 +32,9 @@ public final class SettingsLoader extends Loader {
 
                 return SETTINGS.get(key);
             }
-        } catch (JSONException e) {
-            System.err.println(e.getCause());
+        } catch (JSONException | NullPointerException e) {
+            return -1;
         }
-        return 15; //default number of events
     }
 
     @Override

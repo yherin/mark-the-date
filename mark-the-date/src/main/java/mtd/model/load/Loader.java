@@ -66,11 +66,10 @@ public abstract class Loader {
             JSONObject jso = new JSONObject(jsonAsString);
             return jso;
         } catch (IOException e) {
-            System.out.println("Fatal error when parsing  JSON. "
-                    + e.getLocalizedMessage());
+            System.err.println("Fatal error when parsing JSON file. ");
             System.exit(-1);
         }
-        throw new IllegalStateException("Error when passing JSON");
+        throw new IllegalStateException("Fatal error when parsing JSON file");
 
     }
 
@@ -83,8 +82,7 @@ public abstract class Loader {
                 line = br.readLine();
             }
         } catch (IOException e) {
-            System.out.println("Fatal error when parsing events JSON.  "
-                    + e.getLocalizedMessage());
+            System.err.println("Fatal error when parsing events JSON.  ");
             System.exit(-1);
         } finally {
             try {

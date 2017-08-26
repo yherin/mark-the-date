@@ -9,7 +9,7 @@ package mtd.model.models.answer;
  *
  * @author Jack Sheridan
  */
-public abstract class Answer implements Comparable<Answer> {
+public abstract class Answer {
 
     protected Integer year;
     protected Integer score;
@@ -25,11 +25,6 @@ public abstract class Answer implements Comparable<Answer> {
     @Override
     public String toString() {
         return this.year.toString();
-    }
-
-    @Override
-    public int compareTo(Answer other) {
-        return other.getYear() - this.year;
     }
 
     public Integer getScore() {

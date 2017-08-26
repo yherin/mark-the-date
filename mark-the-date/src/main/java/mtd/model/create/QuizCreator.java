@@ -12,14 +12,25 @@ import mtd.model.models.Question;
 import mtd.model.models.Quiz;
 
 /**
- *
+ * Creates Quiz objects which store all Question objects for one round of the game.
+ * @see Quiz
  * @author Jack Sheridan
  */
 public class QuizCreator {
 
+    /**
+     * Number of events each quiz holds.
+     */
     private Integer numberOfEvents;
+    /**
+     * Quiz object storing Question objects for this round.
+     */
     private Quiz quiz;
+    /**
+     * EventCreator used for creating events.
+     */
     private EventCreator ec;
+
 
     public QuizCreator() {
         ec = new EventCreator();
@@ -27,6 +38,10 @@ public class QuizCreator {
         quiz = new Quiz(questions);
     }
 
+    /**
+     * Builds and returns a Quiz object containing a new set of questions.
+     * @return The created Quiz object.
+     */
     public Quiz createQuiz() {
         List<Question> questions = createQuestions();
         Quiz quiz = new Quiz(questions);

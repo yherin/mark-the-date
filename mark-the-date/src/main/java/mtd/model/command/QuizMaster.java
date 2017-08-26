@@ -7,15 +7,31 @@ import mtd.model.models.Quiz;
 import mtd.view.GUICommand;
 
 /**
- *
+ * Acts as Model, within the MVC structure. Stores, gives, loads game data.
+ * @see Quiz
  * @author Jack Sheridan
  */
 public class QuizMaster {
 
+    /**
+     * The Question currently in use. Displayed in the GUI.
+     */
     private Question currentQuestion;
+    /**
+     * Quiz object containing a list of all questions for this round.
+     */
     private Quiz quiz;
+    /**
+     * The index of the current question in the list of questions.
+     */
     private Integer index;
+    /**
+     * Current score for this round.
+     */
     private int score;
+    /**
+     * QuizCreator object
+     */
     private QuizCreator qc;
     private ScoreTracker scoreTracker;
 
@@ -74,31 +90,28 @@ public class QuizMaster {
     }
 
     private boolean forward() {
-        if (index < quiz.getQuestions().size() - 1) {
+
+        try {
             index++;
-            try {
-                Question previousQuestion = quiz.getQuestions().get(index);
-                boolean isSuccessful = validateQuestion(currentQuestion,
-                        previousQuestion);
-                return isSuccessful;
-            } catch (IndexOutOfBoundsException e) {
-                return false;
-            }
-        } else {
+            Question previousQuestion = quiz.getQuestions().get(index);
+            boolean isSuccessful = validateQuestion(currentQuestion,
+                    previousQuestion);
+            return isSuccessful;
+        } catch (IndexOutOfBoundsException e) {
             return false;
         }
+
     }
 
     private boolean validateQuestion(Question currentQuestion,
             Question previousQuestion) {
         if (previousQuestion.getClass() != Question.class) {
-            System.out.println();
             return false;
-        }
-        if (previousQuestion == currentQuestion) {
+        } else if (previousQuestion == currentQuestion) {
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     /**
@@ -123,10 +136,17 @@ public class QuizMaster {
         return index;
     }
 
+    /**
+     * Set the index
+     * @param Integer index [description]
+     */
     public void setIndex(Integer index) {
         this.index = index;
     }
 
+    /**
+     * Reset the score for this round to 0.
+     */
     public void resetScore() {
         this.scoreTracker.reset();
     }

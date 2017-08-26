@@ -11,7 +11,8 @@ import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
 
 /**
- *
+ * Creates RandomAnswer objects corresponding to a single CorrectAnswer.
+ * @see RandomAnswer
  * @author Jack Sheridan
  */
 public class RandomAnswerCreator {

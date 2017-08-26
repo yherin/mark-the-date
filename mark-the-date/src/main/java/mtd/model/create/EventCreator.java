@@ -9,7 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
+ * Creates Event objects based on data stored in events.json.
+ * @see Event
+ * @see JSONObject
  * @author Jack Sheridan
  */
 public class EventCreator {
@@ -49,7 +51,6 @@ public class EventCreator {
                 listOfEvents.add(event);
             } else {
                 i--;
-                System.out.println("UUIDS RESET! Ran out of questions");
                 this.eventPicker.getUsedUIDs().clear();
             }
         }

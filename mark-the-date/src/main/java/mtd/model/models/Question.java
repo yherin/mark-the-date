@@ -48,21 +48,6 @@ public class Question {
         return randomAnswers;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.event.getDescription());
-        sb.append("\n");
-        sb.append(shuffled.get(0).getYear());
-        sb.append("\t");
-        sb.append(shuffled.get(1).getYear());
-        sb.append("\t");
-        sb.append(shuffled.get(2).getYear());
-        sb.append("\t");
-        sb.append(shuffled.get(3).getYear());
-        return sb.toString();
-    }
-
     private List<Answer> createShuffledAnswers() {
         List<Answer> answers = new ArrayList<Answer>();
         answers.addAll(this.randomAnswers);
