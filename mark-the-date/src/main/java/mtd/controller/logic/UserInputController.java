@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
+import mtd.model.models.answer.Answer;
 import mtd.view.AnswerButton;
 import mtd.view.GUICommand;
 import mtd.view.GUIComponent;
@@ -15,8 +16,8 @@ import mtd.view.GUIComponentMap;
 import mtd.view.GameWindow;
 
 /**
- * UserInputController performs functions of the controller in the MVC modelwa. It
- * controls the GUI View and asks for data from Model (GameWindow and
+ * UserInputController performs functions of the controller in the MVC model.
+ * It controls the GUI View and asks for data from Model (GameWindow and
  * QuizMaster).
  *
  * @author Jack Sheridan
@@ -32,7 +33,7 @@ public class UserInputController {
         this.model = model;
         addListenerButtonsToGUI();
     }
-    
+
     class AnswerButtonListener implements ActionListener {
 
         /**
@@ -51,6 +52,12 @@ public class UserInputController {
             nextQuestion();
             gui.getTimer().reset();
             clicked.setEnabled(true);
+        }
+
+        private int calculatePoints(Answer a) {
+            int baseScore = a.getScore();
+            int bonus = gui.getTimer().currentTime() * 50;
+            return baseScore + bonus;
         }
 
     }

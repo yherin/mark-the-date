@@ -27,7 +27,7 @@ public class QuestionStopwatch extends JLabel {
     private ActionListener instantiateNewActionListener() {
         return (ActionEvent ae) -> {
             currentTime--;
-            setText(String.valueOf(currentTime));
+            setText("Time remaining: " + String.valueOf(currentTime));
             if (currentTime <= 0) {
                 final Timer timer = (Timer) ae.getSource();
                 timer.stop();
@@ -37,6 +37,10 @@ public class QuestionStopwatch extends JLabel {
 
     public void start() {
         countdown.start();
+    }
+
+    public int currentTime() {
+        return this.currentTime;
     }
 
     public void reset() {

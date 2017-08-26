@@ -5,18 +5,11 @@
  */
 package mtd.view.create;
 
-import java.awt.Container;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import mtd.model.models.QuestionStopwatch;
-import mtd.model.models.answer.Answer;
 import mtd.view.AnswerButton;
 import mtd.view.GUIComponent;
 import mtd.view.GUIComponentMap;

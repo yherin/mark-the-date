@@ -41,14 +41,21 @@ public class UserInputControllerTest {
     @Before
     public void setUp() {
         controller = new UserInputController(view, model);
+
     }
 
     @After
     public void tearDown() {
     }
 
+    private void clickStart() {
+        JButton start = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_START);
+        start.doClick();
+    }
+
     @Test
     public void newQuizAfterPlayAgainListenerPressed() {
+        clickStart();
         JButton playAgain = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_PLAY_AGAIN);
         Quiz firstQuiz = model.getQuiz();
         Quiz sameQuiz = model.getQuiz();
@@ -60,6 +67,7 @@ public class UserInputControllerTest {
 
     @Test
     public void scoreResetAfterPlayAgainListenerPressed() {
+        clickStart();
         JButton playAgain = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_PLAY_AGAIN);
         //generate score
         assertTrue(model.getScore() == 0);
@@ -70,6 +78,8 @@ public class UserInputControllerTest {
 
     @Test
     public void scoreAddedCorrectlyAfterAnswerButtonPress() {
+        clickStart();
+
         AnswerButton answer1 = (AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_1);
         int scoreToAdd = answer1.getAnswer().getScore();
         int currentScore = model.getScore();
@@ -80,6 +90,8 @@ public class UserInputControllerTest {
 
     @Test
     public void nonFinalQuestionUpdatedAfterAnswerButtonPress() {
+        clickStart();
+
         AnswerButton answer1 = (AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_1);
         JTextArea questionText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_QUESTION_TEXT);
         Question oldQuestion = model.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);

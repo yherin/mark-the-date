@@ -3,11 +3,13 @@ package mtd.view;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
@@ -15,6 +17,7 @@ import mtd.model.models.QuestionStopwatch;
 import mtd.model.models.answer.Answer;
 import mtd.view.create.QuestionComponentCreator;
 import mtd.view.create.ResultsComponentCreator;
+import mtd.view.create.WelcomeComponentCreator;
 
 /**
  *
@@ -27,6 +30,10 @@ public class GameWindow implements Runnable {
     private Question currentQuestion;
     private JFrame frame;
     private QuizMaster logic;
+
+    //welcome screen
+    private JTextArea welcomeText;
+    private JButton startButton;
 
     //question view
     private JTextArea questionText;
@@ -53,19 +60,17 @@ public class GameWindow implements Runnable {
         createFrame();
         createAndMapComponents();
         assignCreatedComponentsToLocalVariables();
-        addQuestionComponents();
-        updateQuestionText(currentQuestion.getEvent().getDescription());
-        updateAnswerLabels(currentQuestion.getShuffled());
+        loadWelcomeView();
+
     }
 
     /*
     Component creation methods.
      */
     private void createAndMapComponents() {
-        questionComponentCreator = new QuestionComponentCreator();
-        questionComponentCreator.createAndMapComponents();
-        summaryCreator = new ResultsComponentCreator();
-        summaryCreator.createAndMapComponents();
+        new WelcomeComponentCreator().createAndMapComponents();
+        new QuestionComponentCreator().createAndMapComponents();
+        new ResultsComponentCreator().createAndMapComponents();
     }
 
     private void createFrame() {
@@ -87,6 +92,12 @@ public class GameWindow implements Runnable {
     private void assignCreatedComponentsToLocalVariables() {
         assignCreatedQuestionComponents();
         assignCreatedSummaryComponents();
+        assignCreatedWelcomeComponents();
+    }
+
+    private void assignCreatedWelcomeComponents() {
+        welcomeText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.WELCOME_TEXT);
+        startButton = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_START);
     }
 
     private void assignCreatedSummaryComponents() {
@@ -104,7 +115,6 @@ public class GameWindow implements Runnable {
     }
 
     private void assignCreatedAnswerButtons() {
-        //Question components
         answerButtons = new ArrayList<>();
         answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_1));
         answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_2));
@@ -114,6 +124,32 @@ public class GameWindow implements Runnable {
 
     public void addListenerToAnswerButton(ActionListener al, int index) {
         this.answerButtons.get(index).addActionListener(al);
+    }
+
+    public final void loadWelcomeView() {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridwidth = 3;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.ipadx = 20;
+        gbc.ipady = 20;
+        container.add(welcomeText, gbc);
+        gbc.gridwidth = 1;
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.SOUTH;
+        gbc.ipadx = 20;
+        gbc.ipady = 5;
+        startButton.addActionListener((ActionEvent ae) -> {
+            initialiseQuestionView();
+        });
+        container.add(startButton, gbc);
+        frame.repaint();
+    }
+
+    private void initialiseQuestionView() {
+        addQuestionComponents();
+        updateQuestionText(currentQuestion.getEvent().getDescription());
+        updateAnswerLabels(currentQuestion.getShuffled());
     }
 
     public final void updateGUIToShowNextQuestion(Question nextQuestion) {
