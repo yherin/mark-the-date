@@ -14,17 +14,24 @@ public class ScoreCalculator {
     public ScoreCalculator() {
     }
 
+    /**
+     * For a given question, calculates scores for its Answer objects.
+     *
+     * @param q Question to which scores are assigned.
+     * @see Answer
+     */
     public final void assignScoreValuesToEachAnswer(Question q) {
         calculateAndAssignScores(q);
     }
 
-    /**
-     * Returns the score given for a random answer.
-     *
-     * @param correct the correct answer
-     * @param rand the randomly generated answer
-     * @return the calculated score
-     */
+    private void calculateAndAssignScores(Question q) {
+        List<RandomAnswer> randomList = q.getRandomAnswers();
+        for (RandomAnswer randomAnswer : randomList) {
+            int score = calculateScoreForRandomAnswer(q.getCorrectAnswer(), randomAnswer);
+            assignScoreForRandomAnswer(score, randomAnswer);
+        }
+    }
+
     private int calculateScoreForRandomAnswer(final CorrectAnswer correct,
             final RandomAnswer rand) {
         int score = correct.getMaxScore() - Math.abs(correct.getYear() - rand.getYear());
@@ -40,11 +47,4 @@ public class ScoreCalculator {
         ran.setScore(score);
     }
 
-    private void calculateAndAssignScores(Question q) {
-        List<RandomAnswer> randomList = q.getRandomAnswers();
-        for (RandomAnswer randomAnswer : randomList) {
-            int score = calculateScoreForRandomAnswer(q.getCorrectAnswer(), randomAnswer);
-            assignScoreForRandomAnswer(score, randomAnswer);
-        }
-    }
 }

@@ -31,10 +31,6 @@ public class QuestionComponentCreator extends ComponentCreator {
     private JTextArea questionText;
     private QuestionStopwatch timer;
 
-    public QuestionComponentCreator() {
-
-    }
-
     @Override
     void createComponents() {
         createAnswerButtons();
@@ -44,15 +40,28 @@ public class QuestionComponentCreator extends ComponentCreator {
 
     @Override
     void mapComponents() {
+
+        mapAnswerButtons();
+        mapText();
+        mapTimer();
+    }
+
+    private void mapTimer() {
+        //Timer
+        GUIComponentMap.setComponentToEnum(GUIComponent.TIMER, timer);
+    }
+
+    private void mapText() {
+        //Text
+        GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_QUESTION_TEXT, questionText);
+    }
+
+    private void mapAnswerButtons() {
         //Buttons
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_ANSWER_1, answerButtons.get(0));
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_ANSWER_2, answerButtons.get(1));
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_ANSWER_3, answerButtons.get(2));
         GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_ANSWER_4, answerButtons.get(3));
-        //Text
-        GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_QUESTION_TEXT, questionText);
-        //Timer
-        GUIComponentMap.setComponentToEnum(GUIComponent.TIMER, timer);
     }
 
     private void createQuestionText() {

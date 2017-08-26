@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 /**
  * Creates Event objects based on data stored in events.json.
+ *
  * @see Event
  * @see JSONObject
  * @author Jack Sheridan
@@ -21,6 +22,11 @@ public class EventCreator {
     private EventPicker eventPicker;
     private List<Event> processedEvents;
 
+    /**
+     * Initialise a new EventCreator object. Instantiates an EventPicker and
+     * EventLoader which choose and load event data respectively. Loads a
+     * JSONObject from which Event objects can be created.
+     */
     public EventCreator() {
         this.quantity = new SettingsLoader().getSetting("number_of_events");
         try {
@@ -34,7 +40,7 @@ public class EventCreator {
     }
 
     /**
-     * Creates a list of events.
+     * Creates and returns a list of Events.
      *
      * @return List of Event objects.
      */

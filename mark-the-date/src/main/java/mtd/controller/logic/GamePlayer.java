@@ -9,7 +9,7 @@ import mtd.view.GameWindow;
 
 /**
  * Initialises components needed to the run the game.
- * Calling #play starts the GUI thread.
+ * Provides a method to start the game.
  * @author Jack Sheridan
  */
 public class GamePlayer {

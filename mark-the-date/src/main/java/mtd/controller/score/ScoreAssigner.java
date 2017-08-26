@@ -14,6 +14,10 @@ import mtd.model.models.Question;
  */
 public class ScoreAssigner {
 
+    private ScoreAssigner() {
+        //private constructor for utility class.
+    }
+
     public static void assignScoresToQuestionList(List<Question> ql) {
         ScoreCalculator sc = new ScoreCalculator();
         for (Question question : ql) {

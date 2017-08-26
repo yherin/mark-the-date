@@ -17,9 +17,9 @@ import mtd.model.models.answer.RandomAnswer;
  * @author Jack Sheridan
  */
 /**
- * Representation of a quiz question, containing the Event, one CorrectAnswer,
+ * Representation of a game question, containing the Event, one CorrectAnswer,
  * List<RandomAnswer> of length 3, and a List<Answer> which contains
- * CorrectAnswer and all RandomAnswer.
+ * CorrectAnswer and all RandomAnswers.
  */
 public class Question {
 

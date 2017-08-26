@@ -32,7 +32,7 @@ public class UserInputController {
         this.model = model;
         addListenerButtonsToGUI();
     }
-
+    
     class AnswerButtonListener implements ActionListener {
 
         /**

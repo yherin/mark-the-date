@@ -1,20 +1,14 @@
 package mtd.view;
 
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
-import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
 import mtd.model.models.QuestionStopwatch;
@@ -50,6 +44,11 @@ public class GameWindow implements Runnable {
     private QuestionComponentCreator questionComponentCreator;
 
     public GameWindow(QuizMaster logic) {
+        performInitialSetup(logic);
+        this.showGUI();
+    }
+
+    private void performInitialSetup(QuizMaster logic) {
         assignMembers(logic);
         createFrame();
         createAndMapComponents();
@@ -57,7 +56,16 @@ public class GameWindow implements Runnable {
         addQuestionComponents();
         updateQuestionText(currentQuestion.getEvent().getDescription());
         updateAnswerLabels(currentQuestion.getShuffled());
-        this.showGUI();
+    }
+
+    /*
+    Component creation methods.
+     */
+    private void createAndMapComponents() {
+        questionComponentCreator = new QuestionComponentCreator();
+        questionComponentCreator.createAndMapComponents();
+        summaryCreator = new ResultsComponentCreator();
+        summaryCreator.createAndMapComponents();
     }
 
     private void createFrame() {
@@ -68,21 +76,20 @@ public class GameWindow implements Runnable {
         container = frame.getContentPane();
     }
 
+    /*
+    Component assignment methods.
+     */
     private void assignMembers(QuizMaster logic) {
         this.logic = logic;
         this.currentQuestion = this.logic.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
     }
 
     private void assignCreatedComponentsToLocalVariables() {
-        //Question components
-        answerButtons = new ArrayList<>();
-        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_1));
-        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_2));
-        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_3));
-        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_4));
-        questionText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_QUESTION_TEXT);
-        timer = (QuestionStopwatch) GUIComponentMap.getComponentByEnum(GUIComponent.TIMER);
+        assignCreatedQuestionComponents();
+        assignCreatedSummaryComponents();
+    }
 
+    private void assignCreatedSummaryComponents() {
         //Summary components
         this.quit = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_QUIT);
         this.newGame = (JButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_PLAY_AGAIN);
@@ -90,11 +97,19 @@ public class GameWindow implements Runnable {
         this.scoreInt = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_SCORE_INT);
     }
 
-    private void createAndMapComponents() {
-        questionComponentCreator = new QuestionComponentCreator();
-        questionComponentCreator.createAndMapComponents();
-        summaryCreator = new ResultsComponentCreator();
-        summaryCreator.createAndMapComponents();
+    private void assignCreatedQuestionComponents() {
+        assignCreatedAnswerButtons();
+        questionText = (JTextArea) GUIComponentMap.getComponentByEnum(GUIComponent.LABEL_QUESTION_TEXT);
+        timer = (QuestionStopwatch) GUIComponentMap.getComponentByEnum(GUIComponent.TIMER);
+    }
+
+    private void assignCreatedAnswerButtons() {
+        //Question components
+        answerButtons = new ArrayList<>();
+        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_1));
+        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_2));
+        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_3));
+        answerButtons.add((AnswerButton) GUIComponentMap.getComponentByEnum(GUIComponent.BUTTON_ANSWER_4));
     }
 
     public void addListenerToAnswerButton(ActionListener al, int index) {
@@ -109,7 +124,7 @@ public class GameWindow implements Runnable {
         showGUI();
     }
 
-    public final void updateAnswerLabels(List<Answer> shuffledAnswers) {
+    private final void updateAnswerLabels(List<Answer> shuffledAnswers) {
         for (int i = 0; i < shuffledAnswers.size(); i++) {
             answerButtons.get(i).setAnswer(shuffledAnswers.get(i));
         }

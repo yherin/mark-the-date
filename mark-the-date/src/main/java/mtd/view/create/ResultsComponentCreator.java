@@ -25,9 +25,6 @@ public class ResultsComponentCreator extends ComponentCreator {
     private JTextArea scoreSummary;
     private JTextArea scoreInt;
 
-    public ResultsComponentCreator() {
-    }
-
     @Override
     void createComponents() {
         createScoreSummary();
@@ -38,11 +35,19 @@ public class ResultsComponentCreator extends ComponentCreator {
 
     @Override
     void mapComponents() {
-        GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_QUIT, quit);
-        GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_PLAY_AGAIN, playAgain);
+        mapButtons();
+        mapLabels();
+
+    }
+
+    private void mapLabels() {
         GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_SUMMARY_TEXT, scoreSummary);
         GUIComponentMap.setComponentToEnum(GUIComponent.LABEL_SCORE_INT, scoreInt);
+    }
 
+    private void mapButtons() {
+        GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_QUIT, quit);
+        GUIComponentMap.setComponentToEnum(GUIComponent.BUTTON_PLAY_AGAIN, playAgain);
     }
 
     private void createScoreSummary() {

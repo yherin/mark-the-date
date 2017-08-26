@@ -86,7 +86,7 @@ public class UserInputControllerTest {
 
         assertTrue(questionText.getText().equals(oldQuestion.getEvent().getDescription()));
 
-        int index = model.getIndex(); //
+        int index = model.getQuestionIndex(); //
         assert (index < model.getNumberOfQuestions() - 1); //must be at least 1 more question
 
         answer1.doClick();

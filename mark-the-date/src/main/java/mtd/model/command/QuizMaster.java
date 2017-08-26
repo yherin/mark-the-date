@@ -8,6 +8,7 @@ import mtd.view.GUICommand;
 
 /**
  * Acts as Model, within the MVC structure. Stores, gives, loads game data.
+ *
  * @see Quiz
  * @author Jack Sheridan
  */
@@ -24,7 +25,7 @@ public class QuizMaster {
     /**
      * The index of the current question in the list of questions.
      */
-    private Integer index;
+    private Integer questionIndex;
     /**
      * Current score for this round.
      */
@@ -35,16 +36,20 @@ public class QuizMaster {
     private QuizCreator qc;
     private ScoreTracker scoreTracker;
 
+    /**
+     * Creates a new QuizMaster object and instantiates QuizCreator,
+     * ScoreTracker Quiz members. Also sets a reference to the current question.
+     */
     public QuizMaster() {
         qc = new QuizCreator();
         scoreTracker = new ScoreTracker();
         fetchQuizObject();
-        currentQuestion = quiz.getQuestions().get(index);
+        currentQuestion = quiz.getQuestions().get(questionIndex);
     }
 
     private void fetchQuizObject() {
 
-        this.index = 0;
+        this.questionIndex = 0;
         this.score = 0;
         this.quiz = qc.createQuiz();
     }
@@ -67,7 +72,7 @@ public class QuizMaster {
      * @return Question The specified question.
      */
     public Question getSpecifiedQuestion(GUICommand guicmd) {
-        currentQuestion = quiz.getQuestions().get(index);
+        currentQuestion = quiz.getQuestions().get(questionIndex);
         if (guicmd == GUICommand.CURRENT_QUESTION) {
             return currentQuestion;
         }
@@ -75,7 +80,7 @@ public class QuizMaster {
             boolean validNext = forward(); //use this boolean to display some kind of popup.
             if (validNext) {
 
-                currentQuestion = this.quiz.getQuestions().get(index);
+                currentQuestion = this.quiz.getQuestions().get(questionIndex);
                 return currentQuestion;
             } else {
                 return currentQuestion;
@@ -85,6 +90,13 @@ public class QuizMaster {
         throw new UnsupportedOperationException("GUICMD " + guicmd + " could not be understood");
     }
 
+    /**
+     * Fetches a new Quiz object using this class's QuizCreator and sets the new
+     * Quiz object ready for use.
+     *
+     * @see Quiz
+     * @see QuizCreator
+     */
     public void buildNewQuiz() {
         fetchQuizObject();
     }
@@ -92,8 +104,8 @@ public class QuizMaster {
     private boolean forward() {
 
         try {
-            index++;
-            Question previousQuestion = quiz.getQuestions().get(index);
+            questionIndex++;
+            Question previousQuestion = quiz.getQuestions().get(questionIndex);
             boolean isSuccessful = validateQuestion(currentQuestion,
                     previousQuestion);
             return isSuccessful;
@@ -132,16 +144,17 @@ public class QuizMaster {
         return this.scoreTracker.getScore();
     }
 
-    public Integer getIndex() {
-        return index;
+    public Integer getQuestionIndex() {
+        return questionIndex;
     }
 
     /**
-     * Set the index
+     * Set the questionIndex
+     *
      * @param Integer index [description]
      */
     public void setIndex(Integer index) {
-        this.index = index;
+        this.questionIndex = index;
     }
 
     /**
