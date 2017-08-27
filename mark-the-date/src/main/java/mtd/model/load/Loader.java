@@ -26,6 +26,14 @@ public abstract class Loader {
         assignFilePath();
     }
 
+    /**
+     * Gets a JSONObject representation of the .json file defined in the
+     * specific implementation of this abstract class.
+     *
+     * @return the read JSONObject
+     * @throws JSONException
+     * @see JSONObject
+     */
     public JSONObject getJSONRoot() throws JSONException {
 
         return readJSONObject();

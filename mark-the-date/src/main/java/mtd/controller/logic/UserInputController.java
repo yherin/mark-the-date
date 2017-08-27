@@ -16,8 +16,8 @@ import mtd.view.GUIComponentMap;
 import mtd.view.GameWindow;
 
 /**
- * UserInputController performs functions of the controller in the MVC model.
- * It controls the GUI View and asks for data from Model (GameWindow and
+ * UserInputController performs functions of the controller in the MVC model. It
+ * controls the GUI View and asks for data from Model (GameWindow and
  * QuizMaster).
  *
  * @author Jack Sheridan
