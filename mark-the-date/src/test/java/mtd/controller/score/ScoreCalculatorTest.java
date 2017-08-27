@@ -5,7 +5,7 @@
  */
 package mtd.controller.score;
 
-import mtd.controller.score.ScoreCalculator;
+import mtd.model.score.ScoreCalculator;
 import java.util.List;
 import mtd.model.create.RandomAnswerCreator;
 import mtd.model.models.Event;

@@ -1,4 +1,4 @@
-package mtd.controller.score;
+package mtd.model.score;
 
 import java.util.List;
 import mtd.model.models.Question;

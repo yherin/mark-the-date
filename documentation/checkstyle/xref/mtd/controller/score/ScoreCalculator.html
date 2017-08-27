@@ -22,39 +22,39 @@
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>      <strong class="jxr_keyword">public</strong> <a href="../../../mtd/controller/score/ScoreCalculator.html">ScoreCalculator</a>() {
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>      }
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> assignScoreValuesToEachAnswer(<a href="../../../mtd/model/models/Question.html">Question</a> q) {
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>          calculateAndAssignScores(q);
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>      }
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * Returns the score given for a random answer.</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * @param correct the correct answer</em>
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * @param rand the randomly generated answer</em>
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * @return the calculated score</em>
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> calculateScoreForRandomAnswer(<strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/CorrectAnswer.html">CorrectAnswer</a> correct,
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>              <strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/RandomAnswer.html">RandomAnswer</a> rand) {
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <strong class="jxr_keyword">int</strong> score = correct.getMaxScore() - Math.abs(correct.getYear() - rand.getYear());
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>          <strong class="jxr_keyword">if</strong> (score &gt; 0) {
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>              <strong class="jxr_keyword">return</strong> score;
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>              <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>          }
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>      }
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> assignScoreForRandomAnswer(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> score,
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>              <strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/RandomAnswer.html">RandomAnswer</a> ran) {
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>          ran.setScore(score);
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>      }
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> calculateAndAssignScores(<a href="../../../mtd/model/models/Question.html">Question</a> q) {
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>          List&lt;RandomAnswer&gt; randomList = q.getRandomAnswers();
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">for</strong> (RandomAnswer randomAnswer : randomList) {
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <strong class="jxr_keyword">int</strong> score = calculateScoreForRandomAnswer(q.getCorrectAnswer(), randomAnswer);
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>              assignScoreForRandomAnswer(score, randomAnswer);
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>          }
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * For a given question, calculates scores for its Answer objects.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * @param q Question to which scores are assigned.</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * @see Answer</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> assignScoreValuesToEachAnswer(<a href="../../../mtd/model/models/Question.html">Question</a> q) {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          calculateAndAssignScores(q);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      }
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> calculateAndAssignScores(<a href="../../../mtd/model/models/Question.html">Question</a> q) {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          List&lt;RandomAnswer&gt; randomList = q.getRandomAnswers();
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          <strong class="jxr_keyword">for</strong> (RandomAnswer randomAnswer : randomList) {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>              <strong class="jxr_keyword">int</strong> score = calculateScoreForRandomAnswer(q.getCorrectAnswer(), randomAnswer);
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>              assignScoreForRandomAnswer(score, randomAnswer);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      }
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> calculateScoreForRandomAnswer(<strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/CorrectAnswer.html">CorrectAnswer</a> correct,
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>              <strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/RandomAnswer.html">RandomAnswer</a> rand) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <strong class="jxr_keyword">int</strong> score = correct.getMaxScore() - Math.abs(correct.getYear() - rand.getYear());
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">if</strong> (score &gt; 0) {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              <strong class="jxr_keyword">return</strong> score;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> assignScoreForRandomAnswer(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> score,
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <strong class="jxr_keyword">final</strong> <a href="../../../mtd/model/models/answer/RandomAnswer.html">RandomAnswer</a> ran) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          ran.setScore(score);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      }
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  }
 </pre>
 <hr/>

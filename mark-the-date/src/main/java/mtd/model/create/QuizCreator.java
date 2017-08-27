@@ -6,7 +6,7 @@
 package mtd.model.create;
 
 import java.util.List;
-import mtd.controller.score.ScoreAssigner;
+import mtd.model.score.ScoreAssigner;
 import mtd.model.models.Event;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;

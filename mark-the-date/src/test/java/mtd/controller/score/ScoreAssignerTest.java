@@ -5,7 +5,7 @@
  */
 package mtd.controller.score;
 
-import mtd.controller.score.ScoreAssigner;
+import mtd.model.score.ScoreAssigner;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

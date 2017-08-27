@@ -1,6 +1,6 @@
 package mtd.model.command;
 
-import mtd.controller.score.ScoreTracker;
+import mtd.model.score.ScoreTracker;
 import mtd.model.create.QuizCreator;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;

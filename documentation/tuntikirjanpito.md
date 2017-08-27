@@ -14,3 +14,9 @@ Päivä | Tunnit | Kuvaus
 06.08.2017 | 5h | Implement ScoreCalculator and add unit tests for that. Improve documentation according to feedback. Fixed Checkstyle errors.
 08.08.2017 | 2h | Refactoring.
 13.08.2017 | 7h | Basic GUI with button listeners. Many unit tests. Improved architecture. Improved UML diagram.
+14.08.2017 | 2h | MVC research.
+17.08.2017 | 6h | MVC refactoring and implementation I.
+20.08.2017 | 5h | GUI improvements. MVC refactoring and implemenation II.
+22.08.2017 | 2h | Demo prep.
+26.08.2017 | 4h | Start JavaDoc. Improve test coverage. Implement welcome screen.
+27.08.2017 | 2h | Add sequence diagrams. Update project description.

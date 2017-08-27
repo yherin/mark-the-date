@@ -1,4 +1,4 @@
-package mtd.controller.score;
+package mtd.model.score;
 
 public class ScoreTracker {
 

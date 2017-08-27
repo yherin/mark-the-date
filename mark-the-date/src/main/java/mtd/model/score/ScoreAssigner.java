@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mtd.controller.score;
+package mtd.model.score;
 
 import java.util.List;
 import mtd.model.models.Question;
