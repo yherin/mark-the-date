@@ -48,5 +48,5 @@ A historical quiz where the player guesses the time period of specific events fr
 ![MVC diagram](https://github.com/yherin/mark-the-date/blob/master/documentation/mvc.png)
 
 ## Sequence diagrams.
-![userClicksAnswer](https://github.com/yherin/mark-the-date/blob/master/documentation/userClicksAnswer.png
+![userClicksAnswer](https://github.com/yherin/mark-the-date/blob/master/documentation/userClicksAnswer.png)
 ![userClicksPlayAgain](https://github.com/yherin/mark-the-date/blob/master/documentation/userClicksPlayAgain.png)
