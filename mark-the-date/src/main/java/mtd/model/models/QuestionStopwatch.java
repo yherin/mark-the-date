@@ -6,13 +6,35 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+/**
+ * QuestionStopwatch provides timer functionality. It is a countdown from when
+ * the question started. It updates its own JLabel by a defined interval of
+ * 1000ms. It can be stopped, started and reset by public methods.
+ */
 public class QuestionStopwatch extends JLabel {
 
+    /**
+     * Timer object which provides the counting functionality.
+     * @see Timer
+     */
     private Timer countdown;
+    /**
+     * Time from which the stopwatch counts down.
+     */
     private final int startTime = 10;
+    /**
+     * Current time.
+     */
     private int currentTime = startTime;
+    /**
+     * Time at which the stopwatch stops counting.
+     */
     private final int endTime = 0;
 
+    /**
+     * Creates a new QuestionStopwatch, and performs setup of text and timer.
+     * @return [description]
+     */
     public QuestionStopwatch() {
         countdown = instantiateNewTimer();
         setText(String.valueOf(currentTime));
@@ -24,9 +46,14 @@ public class QuestionStopwatch extends JLabel {
         return new Timer(interval, instantiateNewActionListener());
     }
 
+    /**
+     * Creates an action listener which updates this timer's JTextArea when
+     * triggered.
+     * @return ae the created ActionListener
+     */
     private ActionListener instantiateNewActionListener() {
         return (ActionEvent ae) -> {
-            
+
             currentTime--;
             setText("Time remaining: " + String.valueOf(currentTime));
             if (currentTime <= 0) {

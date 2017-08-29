@@ -6,8 +6,9 @@
 package mtd.model.models;
 
 /**
- *
+ * Implementation of abstract class Historical. No additional functionality.
  * @author Jack Sheridan
+ * @see Historical
  */
 public class Event extends Historical {
 

@@ -6,17 +6,14 @@
 package mtd.model.models.answer;
 
 /**
- *
+ * Abstract implementation of answer which provides basic getter methods to its
+ * subclasses.
  * @author Jack Sheridan
  */
 public abstract class Answer {
 
     protected Integer year;
     protected Integer score;
-
-    public Answer() {
-
-    }
 
     public Integer getYear() {
         return year;

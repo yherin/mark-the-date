@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mtd.model.models.answer;
 
 import java.util.Random;
 
 /**
- *
+ * RandomAnswer represents a randomly generated answer corresponding to a
+ * specific event.
  * @author Jack Sheridan
  */
 public class RandomAnswer extends Answer {
@@ -22,6 +19,7 @@ public class RandomAnswer extends Answer {
     private final Random randomNumberGenerator;
 
     /**
+     * Create a new random answer.
      * Constructor generates a random number between 1 and 1000 and assigns it
      * to 'value' (inherited from super).
      */
