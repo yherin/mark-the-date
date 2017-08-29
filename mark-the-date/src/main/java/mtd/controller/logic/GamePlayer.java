@@ -1,4 +1,3 @@
-
 package mtd.controller.logic;
 
 import javax.swing.SwingUtilities;
@@ -8,30 +7,51 @@ import mtd.view.GUICommand;
 import mtd.view.GameWindow;
 
 /**
- * Initialises components needed to the run the game.
- * Provides a method to start the game.
+ * Initialises components needed to the run the game. Provides a method to start
+ * the game.
+ *
  * @author Jack Sheridan
  */
 public class GamePlayer {
 
+    /**
+     * Holds all data needed to run the game. Represents model in MVC structure.
+     */
     private final QuizMaster quizMaster;
+    /**
+     * Manages UI components and provides methods to create views. Represents
+     * view in MVC structure.
+     */
     private final GameWindow gui;
+    /**
+     * Listeners for user input. Sends commands to model and view. Represents
+     * controller in MVC structure.
+     */
     private final UserInputController listener;
-    private Question currentQuestion;
-    private final int numberOfQuestions;
+    /**
+     * The question that is initialised first at the start of the game.
+     */
+    private Question firstQuestion;
 
+    /**
+     * Create an instance of GamePlayer, allowing you to run the game.
+     */
     public GamePlayer() {
         quizMaster = new QuizMaster();
-        numberOfQuestions = quizMaster.getNumberOfQuestions();
         updateCurrentQuestion();
         gui = new GameWindow(quizMaster);
         this.listener = new UserInputController(gui, quizMaster);
     }
 
     private void updateCurrentQuestion() {
-        this.currentQuestion = this.quizMaster.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
+        this.firstQuestion = this.quizMaster.getSpecifiedQuestion(GUICommand.CURRENT_QUESTION);
     }
 
+    /**
+     * Invokes the GUI thread which starts the game for the user.
+     *
+     * @return the number of active threads.
+     */
     public final int play() {
         SwingUtilities.invokeLater(gui);
         return Thread.activeCount();

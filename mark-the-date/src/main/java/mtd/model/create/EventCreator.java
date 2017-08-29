@@ -17,9 +17,22 @@ import org.json.JSONObject;
  */
 public class EventCreator {
 
+    /**
+     * The quantity of events to be created.
+     */
     private final int quantity;
+    /**
+     * The JSONObject which will store the events.
+     */
     private JSONObject eventsJSON;
+    /**
+     * EventPicker which will choose which specific events make up the
+     * created events.
+     */
     private EventPicker eventPicker;
+    /**
+     * List of the chosen events.
+     */
     private List<Event> processedEvents;
 
     /**

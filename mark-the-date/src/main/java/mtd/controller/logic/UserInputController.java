@@ -25,8 +25,14 @@ import mtd.view.GameWindow;
  */
 public class UserInputController {
 
-    private GameWindow gui;
-    private QuizMaster model;
+    /**
+     * GUI view to which commands are given.
+     */
+    private final GameWindow gui;
+    /**
+     * Data model from which data is requested and given to.
+     */
+    private final QuizMaster model;
 
     public UserInputController(GameWindow gui, QuizMaster model) {
         this.gui = gui;
@@ -34,6 +40,10 @@ public class UserInputController {
         addListenerButtonsToGUI();
     }
 
+    /**
+     * ActionListener implementation which listens for player pressing an answer
+     * button.
+     */
     class AnswerButtonListener implements ActionListener {
 
         /**
@@ -62,6 +72,10 @@ public class UserInputController {
 
     }
 
+    /**
+     * ActionListener implementation which listeners for user pressing 'play
+     * again'.
+     */
     class PlayAgainButtonListener implements ActionListener {
 
         @Override

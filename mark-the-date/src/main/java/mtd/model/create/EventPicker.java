@@ -37,7 +37,8 @@ public class EventPicker {
     private final int quantity;
 
     /**
-     *
+     * Create a new EventPicker, which is used to randomly select events from
+     * file by hashCode.
      * @param events JSONObject represenation of the events file.
      */
     public EventPicker(JSONObject events) {
@@ -50,9 +51,11 @@ public class EventPicker {
     }
 
     /**
-     * Selects an String represenation of an event (from the JSONObject) which was previously unselected.
-     * @return String key corresponding to an Event object which has not yet been
-     * returned by this EventPicker OR String "NO_EVENT" if all events have been previously chosen.
+     * Selects an String represenation of an event (from the JSONObject) which
+     * was previously unselected.
+     * @return String   key   Key corresponding to an Event object which has not
+     *  yet been returned by this EventPicker OR String "NO_EVENT" if all events
+     *  have been previously chosen.
      */
     public String selectEventNotYetSelected() {
         boolean foundSuitableUID = false;

@@ -9,7 +9,7 @@ import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
 
 /**
- * Handles the creation of Question objects from Event objects.
+ * Handles the creation of Question objects.
  * @see Question
  * @author Jack Sheridan
  */
@@ -24,6 +24,12 @@ public class QuestionCreator {
      */
     private final RandomAnswerCreator rac;
 
+    /**
+     * Creates a new QuestionCreator, which will create Questions based on
+     * given Events.
+     * @param  List<Event>         events        the list of events.
+     * @param  RandomAnswerCreator rac           a RandomAnswerCreator
+     */
     public QuestionCreator(List<Event> events, RandomAnswerCreator rac) {
         this.events = events;
         this.rac = rac;

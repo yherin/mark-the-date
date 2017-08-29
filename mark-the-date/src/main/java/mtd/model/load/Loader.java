@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mtd.model.load;
 
 import java.io.BufferedReader;
@@ -13,7 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
+ * Abstract class for loading data from JSON file. Inherited by EventLoader and
+ * SettingsLoader.
  * @author Jack Sheridan
  */
 public abstract class Loader {
