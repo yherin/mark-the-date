@@ -33,11 +33,11 @@ public class GamePlayer {
      */
     private Question firstQuestion;
 
+    private Thread errorHandlingWhileLoading;
+
     /**
      * Create an instance of GamePlayer, allowing you to run the game.
      */
-    private Thread errorHandlingWhileLoading;
-
     public GamePlayer() {
         startErrorHandlingThread();
         quizMaster = new QuizMaster();

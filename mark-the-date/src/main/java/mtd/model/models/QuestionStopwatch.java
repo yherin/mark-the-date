@@ -36,7 +36,6 @@ public class QuestionStopwatch extends JLabel {
      * Creates a new QuestionStopwatch, and performs setup of text and timer.
      */
     public QuestionStopwatch() {
-        countdown = instantiateNewTimer();
         setText(String.valueOf(currentTime));
         setFont(new Font("sansserif", 0, 28));
     }
@@ -68,6 +67,9 @@ public class QuestionStopwatch extends JLabel {
      * Starts the countdown timer.
      */
     public void start() {
+        if (countdown == null) {
+            countdown = instantiateNewTimer();
+        }
         countdown.start();
     }
 

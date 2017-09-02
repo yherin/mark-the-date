@@ -6,11 +6,13 @@
 package mtd.model.load;
 
 import java.util.HashMap;
+import mtd.view.error.ErrorInformer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  * Reads JSON data from events.json.
+ *
  * @author Jack Sheridan
  */
 public final class SettingsLoader extends Loader {
@@ -19,6 +21,7 @@ public final class SettingsLoader extends Loader {
 
     /**
      * Creates a new instance of SettingsLoader.
+     *
      * @see Loader
      */
     public SettingsLoader() {
@@ -27,8 +30,9 @@ public final class SettingsLoader extends Loader {
 
     /**
      * Reads the setting stored at the specified key in the settings.json file.
-     * @param   key of the setting to be read.
-     * @return  value corresponding to key.
+     *
+     * @param key of the setting to be read.
+     * @return value corresponding to key.
      */
     public final int getSetting(String key) {
         try {
@@ -41,6 +45,7 @@ public final class SettingsLoader extends Loader {
                 return SETTINGS.get(key);
             }
         } catch (JSONException | NullPointerException e) {
+            super.handleLoadingFailure(new JSONException(fileNameString()));
             return -1;
         }
     }

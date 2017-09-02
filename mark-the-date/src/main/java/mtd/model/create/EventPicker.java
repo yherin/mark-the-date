@@ -99,11 +99,11 @@ public class EventPicker {
 
     private int defineNumberOfEventsInJson() {
         int quantityOfEvents = this.events.length();
-        if (quantityOfEvents >= 1) {
-            return quantityOfEvents;
-        } else {
-            return -1;
+        if (quantityOfEvents <= 1) {
+            ErrorInformer.showError(new IllegalStateException(), "Fatal setup "
+                    + "error. Please redownload the application.");
         }
+        return quantityOfEvents;
     }
 
     private int createSuitableRandom() {

@@ -105,7 +105,7 @@ public abstract class Loader {
         return sb.toString();
     }
 
-    private void handleLoadingFailure(Throwable e) {
+    protected void handleLoadingFailure(Throwable e) {
         ErrorInformer.showError(e, "Fatal error reading JSON data from internal resource "
                 + fileName + ". Installation is corrupted - please reinstall.");
     }

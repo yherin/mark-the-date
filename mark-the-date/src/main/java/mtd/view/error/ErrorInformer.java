@@ -3,6 +3,7 @@ package mtd.view.error;
 import javax.swing.JOptionPane;
 
 /**
+ * Creates a user-friendly popup with error message if a fatal error occurs.
  *
  * @author sjack
  */

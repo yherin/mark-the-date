@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import mtd.model.command.QuizMaster;
 import mtd.model.models.Question;
@@ -150,6 +149,7 @@ public class GameWindow implements Runnable {
         addQuestionComponents();
         updateQuestionText(currentQuestion.getEvent().getDescription());
         updateAnswerLabels(currentQuestion.getShuffled());
+        timer.start();
     }
 
     public final void updateGUIToShowNextQuestion(Question nextQuestion) {
@@ -158,6 +158,7 @@ public class GameWindow implements Runnable {
         timer.reset();
         addQuestionComponents();
         showGUI();
+        timer.start();
     }
 
     private final void updateAnswerLabels(List<Answer> shuffledAnswers) {
@@ -222,7 +223,6 @@ public class GameWindow implements Runnable {
 
         frame.setVisible(true);
         frame.repaint();
-        this.timer.start();
     }
 
     public QuestionStopwatch getTimer() {
