@@ -2,6 +2,11 @@
 
 A historical quiz where the player guesses the time period of specific events from their description. A more accurate, faster guess awards more points.
 
+# How to play
+- Open the .jar file.
+ - On Linux you will most likely need do to `chmod +x mark-the-date-XXX.jar`.
+- Read the description. Click continue and start playing!
+
 # Specification
 
 ## Users:
@@ -38,6 +43,12 @@ A historical quiz where the player guesses the time period of specific events fr
 
 - Implementation of GUI/data/logic has been modelled on the [Model–view–controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) architecture pattern.
 - This aims to separate the core functions into three logical parts. Classes are divided in broad packages of `data`,`gui`,`logic` accordingly.
+
+## A note on test coverage.
+
+- Test coverage is slightly below the desired 90%. This is due to the recent implementation of
+'user friendly' error messages which displays UI elements. These are not easily tested. Previously
+the line coverage was higher than 90%.
 
 ## Application 'walkthrough'
 
