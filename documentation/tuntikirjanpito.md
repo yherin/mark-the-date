@@ -20,3 +20,5 @@ Päivä | Tunnit | Kuvaus
 22.08.2017 | 2h | Demo prep.
 26.08.2017 | 4h | Start JavaDoc. Improve test coverage. Implement welcome screen.
 27.08.2017 | 2h | Add sequence diagrams. Update project description.
+29.08.2017 | 2h | Add documentation. Do code review.
+02.09.2017 | 4h | Implement error handling popup. Fix checkstyle errors. Add application description.
