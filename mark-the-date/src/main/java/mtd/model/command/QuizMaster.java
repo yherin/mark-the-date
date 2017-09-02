@@ -64,7 +64,7 @@ public class QuizMaster {
     }
 
     /**
-     * Returns a Question object based on the command given (current, next)
+     * Returns a Question object based on the command given (current, next).
      *
      * @param guicmd GUICommand which specifies the question to return. At the
      * point of return, the question returned is now QuizMaster.currentQuestion
@@ -149,9 +149,8 @@ public class QuizMaster {
     }
 
     /**
-     * Set the questionIndex
-     *
-     * @param Integer index [description]
+     * Set the questionIndex.
+     * @param Integer index the new value to set the index as
      */
     public void setIndex(Integer index) {
         this.questionIndex = index;

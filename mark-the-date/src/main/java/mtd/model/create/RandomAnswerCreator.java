@@ -24,7 +24,7 @@ public class RandomAnswerCreator {
 
     /**
     * Create a new instance of RandomAnswerCreator, which provides functionality
-    * to generate random answers based on a given CorrectAnswer
+    * to generate random answers based on a given CorrectAnswer.
     * @see RandomAnswer
     * @see CorrectAnswer
      */

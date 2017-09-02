@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Creates Event objects based on data stored in events.json.
+ * Used to create Event objects based on data stored in events.json.
  *
  * @see Event
  * @see JSONObject

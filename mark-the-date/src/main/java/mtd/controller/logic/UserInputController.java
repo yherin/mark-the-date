@@ -34,6 +34,14 @@ public class UserInputController {
      */
     private final QuizMaster model;
 
+
+    /**
+     * Create a new UserInputController which automatically sets up
+     * AnswerButtonListeners and then listens for user input.
+     *
+     * @param  GameWindow gui           view component
+     * @param  QuizMaster model         model component
+     */
     public UserInputController(GameWindow gui, QuizMaster model) {
         this.gui = gui;
         this.model = model;

@@ -31,7 +31,11 @@ public class QuizCreator {
      */
     private EventCreator ec;
 
-
+    /**
+     * Creates a new QuizCreator. Immediately after creation, QuizCreator has
+     * created a quiz (so calling createQuiz is not neccessarily needed).
+     * @return [description]
+     */
     public QuizCreator() {
         ec = new EventCreator();
         List<Question> questions = createQuestions();

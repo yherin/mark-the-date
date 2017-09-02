@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mtd.model.score;
 
 import java.util.List;
 import mtd.model.models.Question;
 
 /**
- *
+ * 
  * @author Jack Sheridan
  */
 public class ScoreAssigner {

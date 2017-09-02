@@ -6,13 +6,11 @@ import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
 
 /**
- *
+ * Provides functionality for calculating scores for both RandomAnswer and
+ * CorrectAnswer.
  * @author Jack Sheridan
  */
 public class ScoreCalculator {
-
-    public ScoreCalculator() {
-    }
 
     /**
      * For a given question, calculates scores for its Answer objects.
