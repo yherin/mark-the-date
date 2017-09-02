@@ -2,12 +2,14 @@ package mtd.model.score;
 
 import java.util.List;
 import mtd.model.models.Question;
+import mtd.model.models.answer.Answer;
 import mtd.model.models.answer.CorrectAnswer;
 import mtd.model.models.answer.RandomAnswer;
 
 /**
  * Provides functionality for calculating scores for both RandomAnswer and
  * CorrectAnswer.
+ *
  * @author Jack Sheridan
  */
 public class ScoreCalculator {

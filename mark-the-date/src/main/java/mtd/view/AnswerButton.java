@@ -2,6 +2,7 @@ package mtd.view;
 
 import javax.swing.JButton;
 import mtd.model.models.answer.Answer;
+import mtd.view.error.ErrorInformer;
 
 /**
  * JButton subclass which stores the Answer with which the button is associated.
@@ -21,12 +22,15 @@ public class AnswerButton extends JButton {
     }
 
     public Answer getAnswer() {
-        if (answer != null) {
-            return answer;
-        } else {
-            throw new IllegalStateException("Answer not initialised.");
-
+        if (this.answer == null) {
+            showError();
         }
+        return this.answer;
+    }
+
+    private void showError() {
+        ErrorInformer.showError(new IllegalStateException(),
+                "Fatal error creating game data. Installation is corrupted- please reinstall.");
     }
 
     public void setAnswer(Answer answer) {

@@ -5,6 +5,7 @@ import java.util.List;
 import mtd.model.load.EventLoader;
 import mtd.model.load.SettingsLoader;
 import mtd.model.models.Event;
+import mtd.view.error.ErrorInformer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,8 +27,8 @@ public class EventCreator {
      */
     private JSONObject eventsJSON;
     /**
-     * EventPicker which will choose which specific events make up the
-     * created events.
+     * EventPicker which will choose which specific events make up the created
+     * events.
      */
     private EventPicker eventPicker;
     /**
@@ -77,16 +78,26 @@ public class EventCreator {
     }
 
     private Event createIndividualEventObject(String key) {
+        JSONObject eventData;
+        Integer year = -1;
+        String desc = "null";
         try {
-            JSONObject event = this.eventsJSON.getJSONObject(key);
-            Integer year = event.getInt("year");
-            String desc = event.getString("desc");
+            eventData = this.eventsJSON.getJSONObject(key);
+            year = eventData.getInt("year");
+            desc = eventData.getString("desc");
             return new Event(year, desc);
         } catch (JSONException e) {
-            System.err.println(e.getCause());
+            ErrorInformer.showError(new JSONException(""), "Fatal error creating game data. Installation is corrupted - please reinstall.");
 
         }
-        throw new IllegalStateException("event object creation failed");
-
+        eventIsValid(year, desc);
+        return new Event(year, desc);
     }
+
+    private void eventIsValid(Integer year, String desc) {
+        if (year == -1 || desc.equals("null")) {
+            ErrorInformer.showError(new JSONException(""), "Fatal error creating game data. Installation is corrupted - please reinstall.");
+        }
+    }
+
 }

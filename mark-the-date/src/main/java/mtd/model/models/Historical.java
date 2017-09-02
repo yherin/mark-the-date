@@ -1,11 +1,11 @@
-
 package mtd.model.models;
 
 import java.util.Objects;
 
 /**
- * abstract class representing any event or other historical phenemenom that
- * may form part of a quiz question.
+ * abstract class representing any event or other historical phenemenom that may
+ * form part of a quiz question.
+ *
  * @author Jack Sheridan
  */
 public abstract class Historical {
@@ -21,8 +21,9 @@ public abstract class Historical {
 
     /**
      * Create a new Historical.
-     * @param  Integer date          date that the historical occured.
-     * @param  String  description   description of the historical.
+     *
+     * @param date date that the historical occurred.
+     * @param description description of the historical.
      */
     public Historical(Integer date, String description) {
         this.date = date;

@@ -36,11 +36,19 @@ public class GamePlayer {
     /**
      * Create an instance of GamePlayer, allowing you to run the game.
      */
+    private Thread errorHandlingWhileLoading;
+
     public GamePlayer() {
+        startErrorHandlingThread();
         quizMaster = new QuizMaster();
         updateCurrentQuestion();
         gui = new GameWindow(quizMaster);
         this.listener = new UserInputController(gui, quizMaster);
+    }
+
+    private void startErrorHandlingThread() {
+        errorHandlingWhileLoading = new Thread();
+        SwingUtilities.invokeLater(errorHandlingWhileLoading);
     }
 
     private void updateCurrentQuestion() {
@@ -53,6 +61,7 @@ public class GamePlayer {
      * @return the number of active threads.
      */
     public final int play() {
+        errorHandlingWhileLoading.interrupt();
         SwingUtilities.invokeLater(gui);
         return Thread.activeCount();
 

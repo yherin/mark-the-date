@@ -42,6 +42,7 @@ public class WelcomeComponentCreator extends ComponentCreator {
         welcomeText.setLineWrap(true);
         welcomeText.setText(welcome.toString());
         welcomeText.setFont(new Font("sansserif", 0, 20));
+        welcomeText.setEditable(false);
     }
 
     private void createStartButton() {

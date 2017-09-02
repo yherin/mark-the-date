@@ -2,6 +2,8 @@ package mtd.model.score;
 
 /**
  * Provides functionality to keep track of the player's score.
+ *
+ * @author Jack Sheridan
  */
 public class ScoreTracker {
 
@@ -10,21 +12,22 @@ public class ScoreTracker {
      */
     private int score;
     /**
-     *  Highest score this session.
+     * Highest score this session.
      */
-    private int highest_score;
+    private int highestScore;
 
     /**
      * Creates a new ScoreTracker. Sets score values to zero.
      */
     public ScoreTracker() {
         this.score = 0;
-        this.highest_score = 0;
+        this.highestScore = 0;
     }
 
     /**
      * Add points to player's score.
-     * @param int points the amount of points to add.
+     *
+     * @param points the amount of points to add.
      */
     public void addPointsToScore(int points) {
         this.score += points;
@@ -37,16 +40,17 @@ public class ScoreTracker {
 
     /**
      * Checks if the current score is the highest score this session.
+     *
      * @return True if this score is also the highest score.
      */
     public boolean currentScoreIsHighestScore() {
         evaluateHighScore();
-        return (this.score == this.highest_score);
+        return (this.score == this.highestScore);
     }
 
     private void evaluateHighScore() {
-        if (this.score > this.highest_score) {
-            this.highest_score = this.score;
+        if (this.score > this.highestScore) {
+            this.highestScore = this.score;
         }
     }
 

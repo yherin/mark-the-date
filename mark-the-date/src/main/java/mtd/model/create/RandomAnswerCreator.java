@@ -12,6 +12,7 @@ import mtd.model.models.answer.RandomAnswer;
 
 /**
  * Creates RandomAnswer objects corresponding to a single CorrectAnswer.
+ *
  * @see RandomAnswer
  * @author Jack Sheridan
  */
@@ -23,10 +24,11 @@ public class RandomAnswerCreator {
     final int numberOfRandomAnswers = 3; //number of random answers
 
     /**
-    * Create a new instance of RandomAnswerCreator, which provides functionality
-    * to generate random answers based on a given CorrectAnswer.
-    * @see RandomAnswer
-    * @see CorrectAnswer
+     * Create a new instance of RandomAnswerCreator, which provides
+     * functionality to generate random answers based on a given CorrectAnswer.
+     *
+     * @see RandomAnswer
+     * @see CorrectAnswer
      */
     public RandomAnswerCreator() {
     }
@@ -34,9 +36,9 @@ public class RandomAnswerCreator {
     /**
      * Generates random answers based on a given CorrectAnswer. The number of
      * random answers created is based on numberOfRandomAnswers.
-     * @param  CorrectAnswer correct       A CorrectAnswer from which
-     * RandomAnswers are created.
-     * @return               A list of generated RandomAnswers.
+     *
+     * @param correct A CorrectAnswer from which RandomAnswers are created.
+     * @return A list of generated RandomAnswers.
      */
     public final List<RandomAnswer> generateRandomAnswers(CorrectAnswer correct) {
         List<RandomAnswer> generatedAnswers = new ArrayList<>();

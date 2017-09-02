@@ -10,6 +10,7 @@ import mtd.model.models.answer.RandomAnswer;
 
 /**
  * Handles the creation of Question objects.
+ *
  * @see Question
  * @author Jack Sheridan
  */
@@ -25,10 +26,11 @@ public class QuestionCreator {
     private final RandomAnswerCreator rac;
 
     /**
-     * Creates a new QuestionCreator, which will create Questions based on
-     * given Events.
-     * @param  List<Event>         events        the list of events.
-     * @param  RandomAnswerCreator rac           a RandomAnswerCreator
+     * Creates a new QuestionCreator, which will create Questions based on given
+     * Events.
+     *
+     * @param events the List<Event> of events.
+     * @param rac a RandomAnswerCreator
      */
     public QuestionCreator(List<Event> events, RandomAnswerCreator rac) {
         this.events = events;
@@ -38,6 +40,7 @@ public class QuestionCreator {
     /**
      * Creates a returns a list of questions. The size of the list is determined
      * by configuration settings.json.
+     *
      * @see Question
      * @return List<Question> list of Question objects.
      */

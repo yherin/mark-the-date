@@ -5,6 +5,7 @@ import mtd.model.create.QuizCreator;
 import mtd.model.models.Question;
 import mtd.model.models.Quiz;
 import mtd.view.GUICommand;
+import mtd.view.error.ErrorInformer;
 
 /**
  * Acts as Model, within the MVC structure. Stores, gives, loads game data.
@@ -75,8 +76,7 @@ public class QuizMaster {
         currentQuestion = quiz.getQuestions().get(questionIndex);
         if (guicmd == GUICommand.CURRENT_QUESTION) {
             return currentQuestion;
-        }
-        if (guicmd == GUICommand.NEXT_QUESTION) {
+        } else if (guicmd == GUICommand.NEXT_QUESTION) {
             boolean validNext = forward(); //use this boolean to display some kind of popup.
             if (validNext) {
 
@@ -87,7 +87,9 @@ public class QuizMaster {
             }
 
         }
-        throw new UnsupportedOperationException("GUICMD " + guicmd + " could not be understood");
+        ErrorInformer.showError(new UnsupportedOperationException(),
+                "Unrecoverable internal error. Please download the application again.");
+        return currentQuestion; //impossible to reach.
     }
 
     /**
@@ -150,7 +152,8 @@ public class QuizMaster {
 
     /**
      * Set the questionIndex.
-     * @param Integer index the new value to set the index as
+     *
+     * @param index the new value to set the index as
      */
     public void setIndex(Integer index) {
         this.questionIndex = index;

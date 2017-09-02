@@ -1,4 +1,3 @@
-
 package mtd.model.models;
 
 import java.util.ArrayList;
@@ -24,6 +23,13 @@ public class Question {
     private final List<RandomAnswer> randomAnswers;
     private List<Answer> shuffled;
 
+    /**
+     * Create a new Question object.
+     *
+     * @param event the event to which the question is related
+     * @param correctAnswer the correct answer based on the event.
+     * @param randomAnswers random answers generated from correctAnswer.
+     */
     public Question(Event event, CorrectAnswer correctAnswer, List<RandomAnswer> randomAnswers) {
         this.event = event;
         this.correctAnswer = correctAnswer;

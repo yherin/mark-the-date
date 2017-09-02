@@ -1,15 +1,18 @@
 package mtd.model.load;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import mtd.view.error.ErrorInformer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
  * Abstract class for loading data from JSON file. Inherited by EventLoader and
  * SettingsLoader.
+ *
  * @author Jack Sheridan
  */
 public abstract class Loader {
@@ -17,7 +20,10 @@ public abstract class Loader {
     private String filePath;
     private String fileName;
 
-    public Loader() {
+    /**
+     * Creates a new subclass of Loader. Prepares the Loader for loading data.
+     */
+    protected Loader() {
         assignFileName();
         assignFilePath();
     }
@@ -26,11 +32,11 @@ public abstract class Loader {
      * Gets a JSONObject representation of the .json file defined in the
      * specific implementation of this abstract class.
      *
-     * @return the read JSONObject
-     * @throws JSONException
+     * @return the parsed JSONObject
+     * @throws JSONException JSONException thrown if json file is not valid.
      * @see JSONObject
      */
-    public JSONObject getJSONRoot() throws JSONException {
+    public JSONObject getJSONRoot() {
 
         return readJSONObject();
     }
@@ -56,28 +62,31 @@ public abstract class Loader {
     protected final BufferedReader getBufferedReader() {
         BufferedReader bf;
         InputStream is = getInputStream();
-        assert (is != null);
+        if (is == null) {
+            handleLoadingFailure(new IOException(fileName));
+        }
         InputStreamReader inputReader = new InputStreamReader(is);
 
         bf = new BufferedReader(inputReader);
         return bf;
     }
 
-    protected final JSONObject readJSONObject() throws JSONException {
+    protected final JSONObject readJSONObject() {
 
         try (BufferedReader br = getBufferedReader()) {
             String jsonAsString = read(br);
             JSONObject jso = new JSONObject(jsonAsString);
+            if (jso.length() < 1) { //INVALID JSON
+                handleLoadingFailure(new JSONException(""));
+            }
             return jso;
-        } catch (IOException e) {
-            System.err.println("Fatal error when parsing JSON file. ");
-            System.exit(-1);
+        } catch (NullPointerException | IOException | JSONException e) {
+            handleLoadingFailure(e);
         }
-        throw new IllegalStateException("Fatal error when parsing JSON file");
-
+        return new JSONObject(); //not possible to reach here.
     }
 
-    protected final String read(BufferedReader br) throws IOException {
+    protected final String read(BufferedReader br) {
         StringBuilder sb = new StringBuilder();
         try {
             String line = br.readLine();
@@ -86,8 +95,7 @@ public abstract class Loader {
                 line = br.readLine();
             }
         } catch (IOException e) {
-            System.err.println("Fatal error when parsing events JSON.  ");
-            System.exit(-1);
+            handleLoadingFailure(e);
         } finally {
             try {
                 br.close();
@@ -95,5 +103,10 @@ public abstract class Loader {
             }
         }
         return sb.toString();
+    }
+
+    private void handleLoadingFailure(Throwable e) {
+        ErrorInformer.showError(e, "Fatal error reading JSON data from internal resource "
+                + fileName + ". Installation is corrupted - please reinstall.");
     }
 }

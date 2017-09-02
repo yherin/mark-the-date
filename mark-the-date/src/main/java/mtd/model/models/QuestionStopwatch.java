@@ -15,6 +15,7 @@ public class QuestionStopwatch extends JLabel {
 
     /**
      * Timer object which provides the counting functionality.
+     *
      * @see Timer
      */
     private Timer countdown;
@@ -33,7 +34,6 @@ public class QuestionStopwatch extends JLabel {
 
     /**
      * Creates a new QuestionStopwatch, and performs setup of text and timer.
-     * @return [description]
      */
     public QuestionStopwatch() {
         countdown = instantiateNewTimer();
@@ -49,6 +49,7 @@ public class QuestionStopwatch extends JLabel {
     /**
      * Creates an action listener which updates this timer's JTextArea when
      * triggered.
+     *
      * @return ae the created ActionListener
      */
     private ActionListener instantiateNewActionListener() {

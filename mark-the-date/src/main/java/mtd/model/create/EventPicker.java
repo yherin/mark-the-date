@@ -1,25 +1,33 @@
 package mtd.model.create;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
+import javax.swing.SwingUtilities;
+import mtd.view.error.ErrorInformer;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Used to select events randomly. Will select previously unselected events, until none are left.
- * When none are left, it will then mark all as unselected and start again.
+ * Used to select events randomly. Will select previously unselected events,
+ * until none are left. When none are left, it will then mark all as unselected
+ * and start again.
+ *
  * @author Jack Sheridan
  */
 public class EventPicker {
 
     /**
-     * JSONObject represenation of events.json file.
+     * JSONObject representation of events.json file.
+     *
      * @see EventLoader
      */
     private final JSONObject events;
     /**
      * Stores hashcodes of events contained in events.json
+     *
      * @see Historical#hashCode().
      */
     private final String[] uniqueIDs;
@@ -39,26 +47,29 @@ public class EventPicker {
     /**
      * Create a new EventPicker, which is used to randomly select events from
      * file by hashCode.
-     * @param events JSONObject represenation of the events file.
+     *
+     * @param events JSONObject representation of the events file.
      */
     public EventPicker(JSONObject events) {
         this.events = events;
         this.quantity = defineNumberOfEventsInJson();
         this.uniqueIDs = new String[quantity];
         this.randomNumberGenerator = new Random();
-        putUIDsIntoIntegerArray();
+        putUIDsIntoArray();
         usedUIDs = new TreeSet<>();
     }
 
     /**
-     * Selects an String represenation of an event (from the JSONObject) which
+     * Selects an String representation of an event (from the JSONObject) which
      * was previously unselected.
-     * @return String   key   Key corresponding to an Event object which has not
-     *  yet been returned by this EventPicker OR String "NO_EVENT" if all events
-     *  have been previously chosen.
+     *
+     * @return String key Key corresponding to an Event object which has not yet
+     * been returned by this EventPicker OR String "NO_EVENT" if all events have
+     * been previously chosen.
      */
     public String selectEventNotYetSelected() {
         boolean foundSuitableUID = false;
+
         if (this.usedUIDs.size() == this.uniqueIDs.length) {
             return "NO_EVENT";
         }
@@ -76,7 +87,7 @@ public class EventPicker {
         return "NO_EVENT";
     }
 
-    private void putUIDsIntoIntegerArray() {
+    private void putUIDsIntoArray() {
         int count = 0;
         Iterator<String> ite = this.events.keys();
         while (ite.hasNext()) {

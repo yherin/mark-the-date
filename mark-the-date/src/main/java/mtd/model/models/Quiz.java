@@ -21,7 +21,7 @@ public class Quiz {
 
     /**
      * Create a new quiz object.
-     * @param  List<Question> questions    list of questions that can be asked.
+     * @param  questions    list of questions to be shown to the player.
      */
     public Quiz(List<Question> questions) {
         this.questions = questions;
